@@ -18,27 +18,36 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+  Perpetual Help Desk
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  Our product targets those who want to learn more in a particular subject and those who want to teach those particular subject. 
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  This product will connect users that want to learn with those that are experienced in the subject. Users will be able to pick a particular subject they want to learn and our product will connect to another user that able to teach the subject. 
 
 ## Problem ##
   > Describe the problem your product solves.
+  Learning a subject and finding useful resources can be difficult. 
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+  The student will get to learn any particular subject they need and the teacher will be paid for their services.
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+  "We make perpetual learning convenient."
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
+  It's easy as 1. signing up, 2. pick a subject, and 3. pick a teacher.
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  "I learned 10 times more in an hour than I did in a 4 year institution."
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+  Come join us at PerpertualHD.com.
