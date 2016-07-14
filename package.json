@@ -5,9 +5,6 @@
   "author": "perpetualquestion group",
   "license": "UNLICENSED",
   "private": true,
-  "scripts": {
-    "run": "live-server"
-  },
   "dependencies": {
     "babel": "^6.5.2",
     "jquery": "^3.1.0",
