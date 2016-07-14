@@ -4,9 +4,9 @@ For futher details, see Press Release.
 
 
 ## Team ##
-Product Owner: Matt Aftlion
+Product Owner: Matt Aftalion
 Scrum Master: Yuyi Li
-Development Team: Matt Aftlion, Yuyi Li, Hongchao Yu, Hien Tran
+Development Team: Matt Aftalion, Yuyi Li, Hongchao Yu, Hien Tran
 
 ## Technologies Used ##
 >React
