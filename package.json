@@ -1,0 +1,15 @@
+{
+  "name": "Perpetual Help Desk",
+  "version": "1.0.0",
+  "description": "Making Learning Easy",
+  "author": "perpetualquestion group",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "babel": "^6.5.2",
+    "jquery": "^3.1.0",
+    "live-server": "^1.0.0",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1"
+  }
+}
