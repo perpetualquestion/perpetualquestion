@@ -1,5 +1,5 @@
 {
-  "name": "Perpetual Help Desk",
+  "name": "PerpetualHelpDesk",
   "version": "1.0.0",
   "description": "Making Learning Easy",
   "author": "perpetualquestion group",
@@ -7,9 +7,16 @@
   "private": true,
   "dependencies": {
     "babel": "^6.5.2",
+    "babel-cli": "^6.10.1",
+    "express": "^4.14.0",
     "jquery": "^3.1.0",
     "live-server": "^1.0.0",
+    "mysql": "^2.11.1",
+    "nodemon": "^1.9.2",
     "react": "^15.2.1",
     "react-dom": "^15.2.1"
+  },
+  "scripts": {
+    "start": "nodemon Server/server.js"
   }
 }
