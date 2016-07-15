@@ -12,5 +12,8 @@
     "live-server": "^1.0.0",
     "react": "^15.2.1",
     "react-dom": "^15.2.1"
+  },
+  "scripts": {
+    "start": "nodemon Server/server.js"
   }
 }
