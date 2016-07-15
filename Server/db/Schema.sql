@@ -11,3 +11,12 @@ Create Table users (
   github varchar(50), 
   linkedin varchar(50)
 );
+
+Create Table newsfeeds (
+	id int NOT NUll AUTO_INCREMENT PRIMARY KEY,
+	sender int NOT NULL, 
+	receiver int NOT NULL,
+	feeds varchar(255),
+	FOREIGN KEY (sender) REFERENCES users(id), 
+	FOREIGN KEY (receiver) REFERENCES users(id)
+)
