@@ -1,4 +1,4 @@
-var db = required('/db.js');
+var db = required('./db.js');
 
 module.exports = {
 
