@@ -3,6 +3,8 @@
 
 ## NPM ##
 node_modules/
+*.log
 
 ## Compiled files ##
 compiled/
+
