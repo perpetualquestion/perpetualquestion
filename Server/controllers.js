@@ -1,5 +1,5 @@
-var userModel = require ('./userModel.js');
-var newsfeedModel = require('./newsfeedModel.js');
+var userModel = require ('./db/userModel.js');
+var newsfeedModel = require('./db/newsfeedModel.js');
 
 module.exports = {
 	users: {
