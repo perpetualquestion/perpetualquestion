@@ -6,7 +6,9 @@ var controller = require('')
 //To Do: 
 // (1) need to refactor the "url" after the skeleton of the app is complete
 // (2) more routes may need if we expand our apps
-
+router.get('/', function(req, res){
+  res.render('index');
+})
 // User get method, for fetch users information? 
 router.get('/users', controller.users.get);
 
