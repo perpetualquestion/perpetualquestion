@@ -14,9 +14,22 @@
     "mysql": "^2.11.1",
     "nodemon": "^1.9.2",
     "react": "^15.2.1",
-    "react-dom": "^15.2.1"
+    "react-dom": "^15.2.1",
+    "webpack": "^1.13.1"
   },
   "scripts": {
-    "start": "nodemon Server/server.js"
+    "start": "nodemon Server/server.js",
+    "test": "live-server --open=./index.html --port=3000"
+  },
+  "devDependencies": {
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "css-loader": "^0.23.1",
+    "node-sass": "^3.8.0",
+    "resolve-url-loader": "^1.6.0",
+    "sass-loader": "^4.0.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.1"
   }
 }

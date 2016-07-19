@@ -7,13 +7,15 @@ export default class Layout extends React.Component {
 	}
 
 	render() {
-		<div>
-			<h1>Hello world</h1>
-			{this.props.children}
-			<Link to="newfeeds">Newfeeds</Link>
-			<Link to="profile">Profile</Link>
-			<button onClick={this.navigate.bind(this)}>Home</button>
-		</div>
+		return (
+			<div>
+				<h1>Hello world</h1>
+				{this.props.children}
+				<Link to="newfeeds">Newfeeds</Link>
+				<Link to="profile">Profile</Link>
+				<button onClick={this.navigate.bind(this)}>Home</button>
+			</div>
+		);
 	}
 
 }
