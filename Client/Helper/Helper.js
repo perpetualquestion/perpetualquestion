@@ -50,7 +50,7 @@ module.exports = {
 		.done(function (enrolled) {
 			console.log('class requested: ' + enrolled);
 		})
-	}
+	},
 
 	//search is a "get" request to database, we compare information and to the search query, 
 	search: function (searchObj) {
