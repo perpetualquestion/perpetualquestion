@@ -14,7 +14,7 @@ ReactDOM.render(
 	<Router history={hashHistory}>
 		<Route path="/" component={Layout}>
 			<IndexRoute component={Layout}></IndexRoute>
-			<Route path="search" component={Search}></Route>
+			<Route path="SearchBar" component={Search}></Route>
 			<Route path="newfeeds" component={Newfeeds}></Route>
 			<Route path="profile" component={Profile}></Route>	
 		</Route>
