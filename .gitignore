@@ -9,4 +9,4 @@ node_modules/
 compiled/
 
 ## Webpack ##
-Client/scripts
+Client/scripts/
