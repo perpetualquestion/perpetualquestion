@@ -1,6 +1,6 @@
 import SearchListEntry from '/SearchListEntry.jsx'
 
-export var SearchList = (props) => (
+var SearchList = (props) => (
 
   //Need to update with property handed down
   <div> 
@@ -10,3 +10,5 @@ export var SearchList = (props) => (
   </div>
 
 );
+
+export default SearchList;
