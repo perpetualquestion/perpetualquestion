@@ -23,7 +23,7 @@
   },
   "scripts": {
     "prestart": "babel . --out-dir compiled --presets=es2015,react --ignore=node_modules,compiled --source-maps inline",
-    "start": "webpack && nodemon Server/server.js",
+    "start": "webpack && node Server/server.js",
     "test": "live-server --open=./index.html --port=3000"
   },
   "devDependencies": {
