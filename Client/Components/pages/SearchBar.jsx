@@ -2,9 +2,9 @@ import React from 'react';
 
 export class Search extends React.Component {
   constructor(props) {
-    super(props);
+    super();
     //default value of state is empty search text
-    this.state : {
+    this.state = {
       value: ''
     };
   }
