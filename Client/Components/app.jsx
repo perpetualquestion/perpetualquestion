@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import { Router, Route, IndexRoute, hashHistory } from "react-router";
 
 import Layout from "./pages/layout";
-import Newfeeds from "./pages/newfeeds";
+import Newfeeds from "./pages/NewsfeedView";
 import Profile from "./pages/profile";
 import Search from "./pages/SearchBar";
 
