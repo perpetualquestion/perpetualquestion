@@ -13,8 +13,8 @@ const app = document.getElementById('app');
 ReactDOM.render(
 	<Router history={hashHistory}>
 		<Route path="/" component={Layout}>
-			<IndexRoute component={Layout}></IndexRoute>
-			<Route path="SearchBar" component={Search}></Route>
+			<IndexRoute component={Search}></IndexRoute>
+			<Route path="search" component={Search}></Route>
 			<Route path="newfeeds" component={Newfeeds}></Route>
 			<Route path="profile" component={Profile}></Route>	
 		</Route>
