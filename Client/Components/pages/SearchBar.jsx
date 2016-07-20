@@ -9,20 +9,24 @@ export default class Search extends React.Component {
     };
   }
 
+  handleInputChange() {
+    console.log('This got changed');
+  }
 
   render() {
     return (
       <div>
-        <input
-          type="text"
-          paceholder="Search a subject"
-          value={this.state.value}
-          // onChange={this.handleInputChange.bind(this)} <--- function that changes the state based on what is entered
-         />
-        <button></button>
+        <h3>Search</h3>
+        <form>
+          <input
+            type="text" name="lessons"
+            value={this.state.value} />
+
+           <input type="submit" value="Search" onClick={this.handleInputChange.bind(this)} />
+        </form>
       </div>
 
-    )
-  }
+    );
+  };
 }
 
