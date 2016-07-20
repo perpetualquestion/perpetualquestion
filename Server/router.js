@@ -1,6 +1,7 @@
 var express = require('express'); 
 var router = express.Router();
 // var controller = require('')
+var User = require('./db/userModel');
 
 
 //To Do: 
@@ -8,7 +9,16 @@ var router = express.Router();
 // (2) more routes may need if we expand our apps
 router.get('/', function(req, res){
   res.render('index');
-})
+});
+
+router.post('/signup', passport.authentication('local-signup', {
+  successRedirect: '/',
+  failureRedirect: 'signup',
+  failureFlash: false
+}))
+
+
+
 // User get method, for fetch users information? 
 // router.get('/users', controller.users.get);
 
