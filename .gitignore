@@ -8,3 +8,5 @@ node_modules/
 ## Compiled files ##
 compiled/
 
+## Webpack ##
+Client/scripts
