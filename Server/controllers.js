@@ -31,8 +31,8 @@ module.exports = {
 					//To Do: we can decide how to handle erro later
 				}
 				res.json(dataReceived);
-				//Hien hard-coded himself here for testing purposes
-			}, 'hien');
+				//Username pass in from Helper.js
+			}, req.query.username);
 		}, 
 		post: function (req, res) {
 			var dataPosted = req.body;

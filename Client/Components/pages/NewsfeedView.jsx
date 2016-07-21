@@ -11,7 +11,8 @@ export default class Newfeeds extends React.Component {
       //Setting the state will cause the page to re-render.
       this.setState({messages: data});
     }.bind(this);
-    helper.newsfeed(callback);
+    //'hien' is hard-coded in the second parameter but it setup to take in any username.
+    helper.newsfeed(callback, 'hien');
   }
 
   //Display all message for particular teacher.
