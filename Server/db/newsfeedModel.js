@@ -34,8 +34,7 @@ module.exports = {
 	newsfeed: {
 		//Get method fetch dat from 'newsfeeds' table from 'perpetualHD' database
 		get: function(cb, username) {
-      console.log('You got inside the newsfeed Model');
-			var query = 'select * from newsfeeds where receiver=' + username;
+			var query = 'select * from newsfeeds where receiver=' + JSON.stringify(username);
 			db.query(query, function (err, data) {
 				//handle error with callback
 				if(err) {

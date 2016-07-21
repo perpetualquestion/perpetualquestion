@@ -26,14 +26,12 @@ module.exports = {
 
 	newsfeed: {
 		get: function (req, res) {
-			console.log('You got inside the controller');
 			newsfeedModel.newsfeed.get(function (err, dataReceived) {
 				if (err) {
 					//To Do: we can decide how to handle erro later
 				}
-				console.log('This is total where you want to be');
 				res.json(dataReceived);
-				//Hien hard coded himself here for testing purposes
+				//Hien hard-coded himself here for testing purposes
 			}, 'hien');
 		}, 
 		post: function (req, res) {
