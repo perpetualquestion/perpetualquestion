@@ -11,12 +11,39 @@ router.get('/', function(req, res){
   res.render('index');
 });
 
+router.get('/signin', function(req,res){
+  res.render('signin');
+});
+
+router.post('/login', passportAuthenticate('local-login', {
+  successRedirect: '/profile',
+  failureRedirect: '/login',
+  failureFlash: true
+}));
+
+router.get('/signup', function(req,res){
+  res.render('signup');
+});
+
+router.get('/profile', isLoggedin, function(req, res){
+  res.render('profile', { user: req.user });
+});
+
 router.post('/signup', passport.authentication('local-signup', {
   successRedirect: '/',
   failureRedirect: 'signup',
-  failureFlash: false
-}))
+  failureFlash: true
+}));
 
+
+//checks if user is logged in
+var isLoggedIn = function(req, res, next){
+  if (req.isAuthentiated()){
+    return next();
+  } 
+  
+  res.redirect('login');
+};
 
 
 // User get method, for fetch users information? 
