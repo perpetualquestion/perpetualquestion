@@ -35,6 +35,11 @@ router.post('/signup', passport.authenticate('local-signup', {
   failureFlash: true
 }));
 
+router.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/')
+})
+
 
 //checks if user is logged in
 var isLoggedIn = function(req, res, next){
