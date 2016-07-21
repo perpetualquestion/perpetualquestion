@@ -1,11 +1,12 @@
 import React from 'react';
 import NewfeedsEntryView from './NewsfeedEntryView'
+import helper from '../../Helper/Helper';
 
 export default class Newfeeds extends React.Component {
   constructor() {
     super();
     //dummy data
-    this.messages = [{text:'Hello World!!!'},{text:'from Hien Tran!!!'}]
+    this.messages = helper.newsfeed();
   }
 
   //Display all message for particular teacher.

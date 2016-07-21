@@ -1,7 +1,7 @@
 var mysql = require('mysql');
 var connection = mysql.createConnection({
   user: 'root', 
-  database: 'perpetualHD',
+  database: 'PerpetualHD',
   password: 'hr44' 
 });
 

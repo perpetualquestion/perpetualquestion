@@ -1,4 +1,4 @@
-var db = required('./db.js');
+var db = require('./db.js');
 
 module.exports = {
 
@@ -33,8 +33,9 @@ module.exports = {
 
 	newsfeed: {
 		//Get method fetch dat from 'newsfeeds' table from 'perpetualHD' database
-		get: function(cb) {
-			var query = 'select * from newsfeeds';
+		get: function(cb, username) {
+      console.log('You got inside the newsfeed Model');
+			var query = 'select * from newsfeeds where receiver=' + username;
 			db.query(query, function (err, data) {
 				//handle error with callback
 				if(err) {
@@ -48,7 +49,7 @@ module.exports = {
 		//Post method upload data from 'newfees' table from 'perpetualHD' database
 		post: function(cb, data) {
 			//We may need to modifiled the insertion query below depends on our needs
-			var query = 'insertion into newsfeeds';
+			var query = 'insert into newsfeeds ?';
 			db.query(query, data, function (err, dataReceived) {
 				//handle error with callback
 				if(err) {
