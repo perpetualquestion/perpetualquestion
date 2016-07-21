@@ -20,6 +20,8 @@ app.get('/', function(req, res){
 app.get('/newsfeed', router);
 app.post('/newsfeed', router);
 
+app.get('/search', router);
+
 
 
 //We may need to set up routing base on our need
