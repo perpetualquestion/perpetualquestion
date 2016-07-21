@@ -1,24 +1,30 @@
 var express = require('express');
+var app = express(); 
 var router = require('./router.js');
 
-var app = express(); 
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var morgan = require('morgan');
+var bodyParser = require('body-parser');
 
-//We may need middleware for express, such as body.parser
 
 app.use(express.static(__dirname + '/../Client'));
-// Setting up router for request 
-app.use('/', router)
 
-// Serving the 'client' folder
-console.log(__dirname);
-//We may need middleware for express
-
-app.get('/', function(req, res){
-  res.render('index')
-})
-
-
-//We may need to set up routing base on our need
+app.use(morgan('dev'));
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(session({
+  secret: 'thereisnocowlevel',
+  saveUnitialized: true,
+  resave: true
+}));
 
 
-app.listen(3000); 
+app.use('/', router);
+
+
+
+var port = 3000;
+
+app.listen(port);
+console.log('Server is running on port: ' + port)
