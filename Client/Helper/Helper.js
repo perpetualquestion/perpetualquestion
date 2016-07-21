@@ -1,4 +1,4 @@
-var $ = require('jQuery');
+var $ = require('jquery');
 
 module.exports = {
 
@@ -62,6 +62,19 @@ module.exports = {
 		})
 		.done(function (data) {
 			//we may need to do something, such as filtering and comparing the search query with the data receive. 
+		})
+	},
+
+	//Seach for all the message given a particular user.
+	newsfeed: function (searchObj) {
+		$.ajax({
+			method: 'GET',
+			url: '/newsfeed',
+		})
+		.done(function (data) {
+			//we may need to do somethin
+			console.log(data);
+			return data;			 
 		})
 	}
 }

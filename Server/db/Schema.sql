@@ -19,4 +19,4 @@ Create Table newsfeeds (
 	feeds varchar(255),
 	FOREIGN KEY (sender) REFERENCES users(id), 
 	FOREIGN KEY (receiver) REFERENCES users(id)
-)
+);

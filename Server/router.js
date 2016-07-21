@@ -1,7 +1,6 @@
 var express = require('express'); 
 var router = express.Router();
-// var controller = require('./controllers.js')
-
+var controller = require('./controllers.js');
 
 //To Do: 
 // (1) need to refactor the "url" after the skeleton of the app is complete
@@ -15,10 +14,13 @@ router.get('/', function(req, res){
 // User post method, for users sign up? 
 // router.post('/users', controller.users.post); 
 
-// newsFeeds get method, for fetch newFeeds to website? 
-// router.get('/newsfeeds', controller.newsfeeds.get); 
+// newsFeeds get method, for fetch newFeeds to website?
+// controller.js 
+router.get('/newsfeed', function(req, res) {
+  controller.newsfeed.get(req, res);
+});
 
 // newsFedds post method, for posting / updating user's information
-// router.post('/newsfeeds', controller.newsfeeds.post);
+// router.post('/newsfeed', controller.newsfeeds.post);
 
 module.exports = router; 
