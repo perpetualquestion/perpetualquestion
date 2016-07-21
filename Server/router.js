@@ -15,7 +15,7 @@ router.get('/signin', function(req,res){
   res.render('signin');
 });
 
-router.post('/login', passportAuthenticate('local-login', {
+router.post('/login', passport.authenticate('local-login', {
   successRedirect: '/profile',
   failureRedirect: '/login',
   failureFlash: true
@@ -29,7 +29,7 @@ router.get('/profile', isLoggedin, function(req, res){
   res.render('profile', { user: req.user });
 });
 
-router.post('/signup', passport.authentication('local-signup', {
+router.post('/signup', passport.authenticate('local-signup', {
   successRedirect: '/',
   failureRedirect: 'signup',
   failureFlash: true
