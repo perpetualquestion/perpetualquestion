@@ -11,7 +11,7 @@ var NewsfeedEntryView = (props) => (
 
   //Display individual message for teacher.
   <div>
-    {props.message.text}
+    {props.message.feeds}
   </div>
 );
 

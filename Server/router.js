@@ -1,6 +1,10 @@
 var express = require('express'); 
 var router = express.Router();
 var controller = require('./controllers.js');
+var bodyParser = require('body-parser');
+
+//body-parser is need to received data being passed in from ajax request
+router.use(bodyParser.json());
 
 //To Do: 
 // (1) need to refactor the "url" after the skeleton of the app is complete

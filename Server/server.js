@@ -5,12 +5,12 @@ var app = express();
 
 //We may need middleware for express, such as body.parser
 
+// Serving the 'client' folder
 app.use(express.static(__dirname + '/../Client'));
 // Setting up router for request 
 app.use('/', router)
 
-// Serving the 'client' folder
-console.log(__dirname);
+
 //We may need middleware for express
 
 //check router.js to check how each endpoint is being handled

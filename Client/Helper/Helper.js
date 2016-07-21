@@ -65,16 +65,18 @@ module.exports = {
 		})
 	},
 
-	//Seach for all the message given a particular user.
-	newsfeed: function (searchObj) {
+	//Seach for all the message given a particular user. Set to just Hien right now.
+	newsfeed: function (callback, username) {
+		//data is wrap inside a object to be retrieved later in controllers.js
+		var object = {username: username};
 		$.ajax({
 			method: 'GET',
 			url: '/newsfeed',
+			data: object
 		})
 		.done(function (data) {
-			//we may need to do somethin
-			console.log(data);
-			return data;			 
+			//Callback is setting State in NewsfeedEntryView
+			callback(data);
 		})
 	}
 }
