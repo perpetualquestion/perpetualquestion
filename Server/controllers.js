@@ -44,4 +44,16 @@ module.exports = {
 			}, dataPosted)			
 		}
 	}
+
+	search: {
+		get: function (req, res) {
+			searchModel.search.get(function (err, dataReceived) {
+				if (err) {
+					//To Do: we can decide how to handle erro later
+				}
+				res.json(dataReceived);
+				//Username pass in from Helper.js
+			}, req.query.username);
+		}
+	}
 }; 
