@@ -5,10 +5,13 @@ module.exports = {
 	//sign up method try to create new user with 'post method', the obj contain informattion such as "user name, and password, "
 	//we might need to check if the userName exsit, and we might also need to pre-check other information, such as password is valid here or somewhere else
 	signup: function (obj) {
+		console.log(obj);
+		// var data = {something: obj};
 		$.ajax({
-			method: 'POST',
+			method: 'GET',
 			url: '/signup', 
 			data: obj
+			// contentType: 'application/json' 
 		})
 		.done(function (data) {
 			console.log('signup success for: ' + data);

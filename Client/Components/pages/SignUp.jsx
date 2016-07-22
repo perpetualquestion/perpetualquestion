@@ -35,6 +35,7 @@ export default class SignUp extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    // alert('submit get call');
     if(this.state.password === this.state.confirmPassword) {  
       var requestObj = {
         userName: this.state.userName.trim(),
@@ -44,7 +45,7 @@ export default class SignUp extends React.Component {
         email: this.state.email.trim(),
         github: this.state.github.trim(),
         linkedin: this.state.linkedin.trim()
-      }
+      };
       Helper.signup(requestObj);
     } else {
       alert("Password and Confirm Password must be mathch, please correct that before continue")
@@ -55,23 +56,23 @@ export default class SignUp extends React.Component {
     return (
       <div>
         <h2>Sign Up</h2>
-        <form method="post" onSubmit={this.handleSubmit} >
+        <form method="post" onSubmit={this.handleSubmit.bind(this)} >
           <p>User Name:</p>
-          <input type="text" name="userName" value={this.state.userName} onChange={this.handleUserNameChange} required />
+          <input type="text" name="userName" value={this.state.userName} onChange={this.handleUserNameChange.bind(this)} required />
           <p>Password:</p>
-          <input type="text" name="password" value={this.state.password} onChange={this.handlePasswordChange} required />
+          <input type="text" name="password" value={this.state.password} onChange={this.handlePasswordChange.bind(this)} required />
           <p>Confirm Password:</p>
-          <input type="text" name="confirmPassword" value={this.state.confirmPassword} onChange={this.handleConfirmPasswordChange} required/>
+          <input type="text" name="confirmPassword" value={this.state.confirmPassword} onChange={this.handleConfirmPasswordChange.bind(this)} required/>
           <p>First Name</p>
-          <input type="text" name="firstName" value={this.state.firstName} onChange={this.handleFirstNameChange} required/>
+          <input type="text" name="firstName" value={this.state.firstName} onChange={this.handleFirstNameChange.bind(this)} required/>
           <p>Last Name:</p>
-          <input type="text" name="lastName" value={this.state.lastName} onChange={this.handleLastNameChange} required/>
+          <input type="text" name="lastName" value={this.state.lastName} onChange={this.handleLastNameChange.bind(this)} required/>
           <p>Email:</p>
-          <input type="text" name="email" value={this.state.email} onChange={this.handleEmailChange} required/>
+          <input type="text" name="email" value={this.state.email} onChange={this.handleEmailChange.bind(this)} required/>
           <p>Github:</p>
-          <input type="text" name="github" value={this.state.github} onChange={this.handleGithubChange} />
+          <input type="text" name="github" value={this.state.github} onChange={this.handleGithubChange.bind(this)} />
           <p>Linkedin:</p>
-          <input type="text" name="linkedin" value={this.state.linkedin} onChange={this.handleLinkedinChange} />
+          <input type="text" name="linkedin" value={this.state.linkedin} onChange={this.handleLinkedinChange.bind(this)} />
           <br />
           <input type="submit" value="Sign Up" />
         </form>
