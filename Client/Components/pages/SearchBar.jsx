@@ -1,4 +1,5 @@
 import React from 'react';
+var helper = require('../../Helper/Helper.js');
 
 export default class Search extends React.Component {
   constructor(props) {
@@ -11,7 +12,8 @@ export default class Search extends React.Component {
 
   handleSearch(e) {
     e.preventDefault();
-    console.log(this.refs.text.value.trim());
+    var text = this.refs.text.value.trim();
+    helper.search(text);
   }
 
   handleInputChange() {
