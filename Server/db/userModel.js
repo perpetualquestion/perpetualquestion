@@ -19,7 +19,8 @@ module.exports = {
     //Post method upload data from database 'perpetualHD'
     post: function (cb, data){
       // we may need refactor this base on the actual information of 'user'
-      var query = 'insert into users ?'; 
+      var query = 'insert into users (firstname, lastname, city, email) \
+              value("li", "li", "SF", "some-email")'; 
       db.query(query, data, function (err, dataReceived) {
         //handle error with callback 
         if (err) {
