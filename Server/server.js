@@ -17,12 +17,7 @@ app.use('/', router)
 app.get('/', function(req, res){
   res.render('index')
 })
-app.get('/newsfeed', router);
-app.post('/newsfeed', router);
-
-
 
 //We may need to set up routing base on our need
-
 
 app.listen(3000); 

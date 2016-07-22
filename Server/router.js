@@ -20,9 +20,7 @@ router.get('/signup', controller.users.post);
 
 // newsFeeds get method, for fetch newFeeds to website?
 // controller.js 
-router.get('/newsfeed', function(req, res) {
-  controller.newsfeed.get(req, res);
-});
+router.get('/newsfeed', controller.newsfeed.get);
 
 // newsFedds post method, for posting / updating user's information
 // router.post('/newsfeed', controller.newsfeeds.post);
