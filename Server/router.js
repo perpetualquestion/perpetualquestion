@@ -16,7 +16,7 @@ router.get('/', function(req, res){
 // router.get('/users', controller.users.get);
 
 // User post method, for users sign up? 
-router.post('/signup', controller.users.post); 
+router.get('/signup', controller.users.post); 
 
 // newsFeeds get method, for fetch newFeeds to website?
 // controller.js 

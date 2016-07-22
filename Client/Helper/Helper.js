@@ -8,9 +8,10 @@ module.exports = {
 		console.log(obj);
 		// var data = {something: obj};
 		$.ajax({
-			method: 'POST',
+			method: 'GET',
 			url: '/signup', 
 			data: obj
+			// contentType: 'application/json' 
 		})
 		.done(function (data) {
 			console.log('signup success for: ' + data);
