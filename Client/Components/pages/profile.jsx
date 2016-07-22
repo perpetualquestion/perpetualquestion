@@ -14,6 +14,21 @@ export default class Profile extends React.Component {
     }
   }
 
+  ComponentWillMount() {
+    //we should pass-in the username of current-log-in user
+    var user = "li";
+    Helper.searchProfile(function (data) {
+      //Notice, data should be an object from successulf ajax call, and setProfile
+      this.setState({
+        firstName: 'Michael',
+        lastName: 'Jordan',
+        username: 'MJ23',
+        github: 'MJcoder23',
+        linkedin: 'MJtheKing'
+      });
+    }, user);
+  }   
+
 	render() {
 		return (
       <div>
@@ -27,3 +42,8 @@ export default class Profile extends React.Component {
 		);
 	}
 }
+
+//general information from teacher (private profile)
+
+//search bar: look at all people's
+ 

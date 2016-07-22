@@ -70,6 +70,20 @@ module.exports = {
 		})
 	},
 
+		//search is a "get" request to database, we compare information and to the search query, 
+	searchProfile: function (callback, username) {
+		var searchObj = {username: username}
+		$.ajax({
+			method: 'GET',
+			url: '/profile',
+			data: searchObj
+		})
+		.done(function (data) {
+			//we may need to do something, such as filtering and comparing the search query with the data receive. 
+			callback(data);
+		})
+	},
+
 	//Seach for all the message given a particular user. Set to just Hien right now.
 	newsfeed: function (callback, username) {
 		//data is wrap inside a object to be retrieved later in controllers.js
