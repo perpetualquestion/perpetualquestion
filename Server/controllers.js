@@ -13,7 +13,9 @@ module.exports = {
 		},
 		post: function (req, res) {
 			// we don't know the data yet, we need to refactor this
+			console.log(req);
 			var dataPosted = req.body;
+			console.log('inside controller:', req.body);
 			userModel.user.post(function (err, dataReceived) {
 				if(err){
 					//To Do: we can decide how to handle error later
