@@ -15,8 +15,8 @@ module.exports = {
 		post: function (req, res) {
 			// we don't know the data yet, we need to refactor this
 			console.log(req);
-			var dataPosted = req.body;
-			// console.log('inside controller:', req.route);
+			var dataPosted = req.query;
+			console.log('inside controller:', dataPosted);
 			userModel.user.post(function (err, dataReceived) {
 				if(err){
 					//To Do: we can decide how to handle error later
@@ -38,7 +38,7 @@ module.exports = {
 			}, req.query.username);
 		}, 
 		post: function (req, res) {
-			var dataPosted = req.body;
+			var dataPosted = req.query;
 			newsfeedModel.newsfeed.post(function (err, dataReceived) {
 				if(err) {
 					//To Do: we can decide how to handle error later

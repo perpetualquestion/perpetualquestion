@@ -12,6 +12,8 @@ router.use(bodyParser.json());
 router.get('/', function(req, res){
   res.render('index');
 })
+
+router.get('/search', controler.users.get);
 // User get method, for fetch users information? 
 // router.get('/users', controller.users.get);
 
@@ -20,9 +22,7 @@ router.get('/signup', controller.users.post);
 
 // newsFeeds get method, for fetch newFeeds to website?
 // controller.js 
-router.get('/newsfeed', function(req, res) {
-  controller.newsfeed.get(req, res);
-});
+router.get('/newsfeed', controller.newsfeed.get);
 
 // newsFedds post method, for posting / updating user's information
 // router.post('/newsfeed', controller.newsfeeds.post);
