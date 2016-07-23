@@ -18,12 +18,12 @@ router.get('/', function(req, res){
   res.render('index');
 })
 
-router.get('/search', controler.users.get);
+router.get('/search', controller.users.getAll);
 // User get method, for fetch users information? 
 // router.get('/users', controller.users.get);
 
 // User get method for users sign in.
-router.get('/signin', controller.users.get);
+router.get('/signin', controller.users.getOne);
 // User post method for users sign up. 
 router.post('/signup', controller.users.post); 
 
