@@ -38,10 +38,10 @@ export default class SignUp extends React.Component {
     // alert('submit get call');
     if(this.state.password === this.state.confirmPassword) {  
       var requestObj = {
-        userName: this.state.userName.trim(),
+        username: this.state.userName.trim(),
         password: this.state.password.trim(),
-        firstName: this.state.firstName.trim(),
-        lastName: this.state.lastName.trim(),
+        firstname: this.state.firstName.trim(),
+        lastname: this.state.lastName.trim(),
         email: this.state.email.trim(),
         github: this.state.github.trim(),
         linkedin: this.state.linkedin.trim()

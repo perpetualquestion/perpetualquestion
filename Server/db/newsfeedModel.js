@@ -18,7 +18,7 @@ module.exports = {
 		//Post method upload data from 'newsfeeds' table from 'perpetualHD' database
 		post: function(cb, data) {
 			//We may need to modifiled the insertion query below depends on our needs
-			var query = 'insert into newsfeeds ?';
+			var query = 'insert into newsfeeds set ?';
 			db.query(query, data, function (err, dataReceived) {
 				//handle error with callback
 				if(err) {
