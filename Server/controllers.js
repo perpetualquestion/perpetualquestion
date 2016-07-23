@@ -4,24 +4,24 @@ var newsfeedModel = require('./db/newsfeedModel.js');
 module.exports = {
 	users: {
 		get: function (req, res) {
-			console.log(req.body)
-			userModel.user.post(function (err, dataReceived) {
+			console.log(req.query.username);
+			userModel.user.get(function (err, dataReceived) {
 				if(err){
 					//To Do: we can decide error handling later	
 				}
+				console.log('data received is:'+dataReceived)
 				res.json(dataReceived);
-			});
+			//Username pass in from Helper.js. Data is stored in request query for GET request.
+			}, req.query.username);
 		},
 		post: function (req, res) {
-			// we don't know the data yet, we need to refactor this
-			console.log(req);
+			//Data is stored in the request body for POST request.
 			var dataPosted = req.body;
-			// console.log('inside controller:', req.route);
 			userModel.user.post(function (err, dataReceived) {
 				if(err){
 					//To Do: we can decide how to handle error later
 				}
-				res.sendStatus(201);
+				res.end();
 
 			}, dataPosted);
 		}
@@ -34,17 +34,29 @@ module.exports = {
 					//To Do: we can decide how to handle erro later
 				}
 				res.json(dataReceived);
-				//Username pass in from Helper.js
+				//Username pass in from Helper.js. Data is stored in request query for GET request.
 			}, req.query.username);
 		}, 
 		post: function (req, res) {
-			var dataPosted = req.body;
+			var dataPosted = req.query;
 			newsfeedModel.newsfeed.post(function (err, dataReceived) {
 				if(err) {
 					//To Do: we can decide how to handle error later
 				}
 				res.sendStatus(201);
 			}, dataPosted)			
+		}
+	}
+
+	search: {
+		get: function (req, res) {
+			searchModel.search.get(function (err, dataReceived) {
+				if (err) {
+					//To Do: we can decide how to handle erro later
+				}
+				res.json(dataReceived);
+				//Username pass in from Helper.js
+			}, req.query.username);
 		}
 	}
 }; 
