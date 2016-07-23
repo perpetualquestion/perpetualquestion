@@ -4,32 +4,28 @@ module.exports = {
 
 	//sign up method try to create new user with 'post method', the obj contain informattion such as "user name, and password, "
 	//we might need to check if the userName exsit, and we might also need to pre-check other information, such as password is valid here or somewhere else
-	signup: function (obj) {
+	signup: function (data) {
 		// var data = {something: obj};
 		$.ajax({
 			method: 'POST',
 			url: '/signup',
 			dataType: 'json', 
-			data: obj
+			data: data
 		})
-		.done(function (data) {
-			console.log('signup success for: ' + data);
+		.done(function (results) {
+			console.log('signup success for: ' + results);
 		});
 	}, 
 
 	//This method is used to compare username and password 
-	signin: function (callback, username) {
-		//data is wrap inside a object to be retrieved later in controllers.js
-		var wrapper = {username: username};
+	signin: function (data) {
 		$.ajax({
 			method: 'GET',
-			url: '/signup',
-			data: wrapper
+			url: '/signin',
+			data: data
 		})
-		.done(function (data) {
-			console.log('signing in for: ' + username);
-			// callback is needed on SignIn.jsx
-			callback(data);
+		.done(function (results) {
+			console.log('signing in for: ', results[0].username, results[0].password);
 		})
 	}, 
 
