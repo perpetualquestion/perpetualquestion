@@ -27,4 +27,11 @@ router.get('/newsfeed', function(req, res) {
 // newsFedds post method, for posting / updating user's information
 // router.post('/newsfeed', controller.newsfeeds.post);
 
+// get method for fetch search list
+// controller.js 
+router.get('/search', function(req, res) {
+  controller.search.get(req, res);
+});
+
+
 module.exports = router; 

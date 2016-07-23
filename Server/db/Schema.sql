@@ -9,7 +9,8 @@ Create Table users (
   city varchar(40) NOT NULL,
   email varchar(50) NOT NULL, 
   github varchar(50), 
-  linkedin varchar(50)
+  linkedin varchar(50),
+  skills varchar(50)
 );
 
 -- This the table we need to use when we are joining the two tables
@@ -28,4 +29,11 @@ Create Table newsfeeds (
   sender varchar(30) NOT NULL, 
   receiver varchar(30) NOT NULL,
   feeds varchar(255)
+);
+
+Create Table lesseons (
+  id int NOT NUll AUTO_INCREMENT PRIMARY KEY,
+  lesson varchar(30) NOT NULL, 
+  user_id int,
+  FOREIGN KEY (user_id) REFERENCES users(id)
 );
