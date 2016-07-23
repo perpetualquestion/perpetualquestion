@@ -4,10 +4,12 @@ var newsfeedModel = require('./db/newsfeedModel.js');
 module.exports = {
 	users: {
 		get: function (req, res) {
+			console.log(req.query.username);
 			userModel.user.get(function (err, dataReceived) {
 				if(err){
 					//To Do: we can decide error handling later	
 				}
+				console.log('data received is:'+dataReceived)
 				res.json(dataReceived);
 			//Username pass in from Helper.js. Data is stored in request query for GET request.
 			}, req.query.username);
