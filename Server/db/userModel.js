@@ -1,5 +1,5 @@
 var db = require('./db.js');
-var util.require('./utility.js');
+var util = require('./utility.js');
 
 module.exports = {
   user: {
