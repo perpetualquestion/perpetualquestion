@@ -14,19 +14,37 @@ export default class Profile extends React.Component {
     }
   }
 
-  ComponentWillMount() {
+  componentDidMount() {
     //we should pass-in the username of current-log-in user
-    var user = "li";
+    var user = 'Yuyi';
+    console.log("Component did mount called?");
+    var update = function(obj){this.updateAll(obj);}.bind(this);
     Helper.searchProfile(function (data) {
       //Notice, data should be an object from successulf ajax call, and setProfile
-      this.setState({
-        firstName: 'Michael',
-        lastName: 'Jordan',
-        username: 'MJ23',
-        github: 'MJcoder23',
-        linkedin: 'MJtheKing'
-      });
+      console.log(data[0]);
+      update(data[0]);
     }, user);
+      // this.setState({
+      //   firstName: result.firstname,
+      //   lastName: result.lastname,
+      //   userName: 'some username',
+      //   github: result.github,
+      //   linkedin: result.linkedin,
+      //   email: result.email,
+      //   city: result.city
+      // });
+  }
+
+  updateAll(obj) {
+    this.setState({
+      firstName: obj.firstname,
+      lastName: obj.lastname,
+      userName: 'some username',
+      github: obj.github,
+      linkedin: obj.linkedin,
+      email: obj.email,
+      city: obj.city
+    });
   }   
 
 	render() {
@@ -37,7 +55,9 @@ export default class Profile extends React.Component {
         <p>Last Name:  <span> {this.state.lastName} </span> </p>
         <p>User Name:  <span> {this.state.userName} </span> </p>
         <p>Github:  <span> {this.state.github} </span> </p>
-        <p>Linkedin:  <span> {this.state.Linkedin} </span> </p>
+        <p>Linkedin:  <span> {this.state.linkedin} </span> </p>
+        <p>City:  <span> {this.state.city} </span> </p>
+        <p>Email:  <span> {this.state.email} </span> </p>
       </div> 
 		);
 	}

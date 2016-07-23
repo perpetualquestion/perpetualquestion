@@ -4,13 +4,15 @@ var db = require('./db.js');
 module.exports = {
   user: {
     //Get method fetch data from database 'perpetualHD'
-    get: function (cb){
-      var query = 'select * from users';
+    get: function (cb, searchQuery){
+      console.log('search query is', searchQuery);
+      var query = 'select * from users where firstname=' + JSON.stringify(searchQuery);
       db.query(query, function (err, data) {
         //handle err with callback  
         if (err) {
           cb(err, null); 
         }
+        console.log('data from db is', data[0]);
         //handle data with callback
         cb(null, data); 
       })
