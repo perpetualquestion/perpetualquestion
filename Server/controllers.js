@@ -1,5 +1,6 @@
 var userModel = require ('./db/userModel.js');
 var newsfeedModel = require('./db/newsfeedModel.js');
+var lessonsModel = require('./db/lessonsModel.js');
 
 module.exports = {
 	users: {
@@ -57,13 +58,15 @@ module.exports = {
 
 	search: {
 		get: function (req, res) {
-			searchModel.search.get(function (err, dataReceived) {
+			lessonsModel.lessons.get(function (err, dataReceived) {
 				if (err) {
 					//To Do: we can decide how to handle erro later
+					console.log('==========controller cb encounter error========>');
 				}
+				console.log(dataReceived);
 				res.json(dataReceived);
 				//Username pass in from Helper.js
-			}, req.query.username);
+			}, req._parsedUrl.query);
 		}
 	}
 }; 

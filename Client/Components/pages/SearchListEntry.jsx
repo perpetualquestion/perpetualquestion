@@ -1,14 +1,19 @@
-var SearchListEntry = (props) => (
-  //Displays full name
-  <div>
-    <div>
-      {props.search.firstname + props.search.lastname}  
-    </div>
-    //Display Subject
-    <div>
-      {props.search.subject}  
-    </div>
-  </div>
-)
+import React from 'react';
 
-export default SearchListEntry;
+export default class SearchListEntry extends React.Component {
+  render() {
+    return (
+      <tr>
+        <td>Search List Entry</td>
+        <td>
+          {this.props.item.user_id}  
+        </td>
+        <td>
+          {this.props.item.lesson}  
+        </td>
+
+      </tr>
+    );
+  }
+
+}

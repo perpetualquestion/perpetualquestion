@@ -55,13 +55,15 @@ module.exports = {
 
 
 	//search is a "get" request to database, we compare information and to the search query, 
-	search: function (searchObj) {
+	search: function (searchObj, callback) {
 		$.ajax({
 			method: 'GET',
 			url: '/search',
 			data: searchObj
 		})
 		.done(function (data) {
+			console.log(data[0]);
+			callback(data);
 			//we may need to do something, such as filtering and comparing the search query with the data receive. 
 		})
 	},
