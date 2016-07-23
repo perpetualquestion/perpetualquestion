@@ -33,9 +33,9 @@ export default class SignIn extends React.Component {
         <h2>Sign In</h2>
         <form method="post" onSubmit={this.handleSubmit}>
           <p>User Name:</p>
-          <input type="text" name="userName" value={this.state.userName} onChange={this.handleUserNameChange} required />
+          <input type="text" name="userName" value={this.state.userName} onChange={this.handleUserNameChange} />
           <p>Password:</p>
-          <input type="text" name="password" value={this.state.password} onChange={this.handlePasswordChange}required />
+          <input type="text" name="password" value={this.state.password} onChange={this.handlePasswordChange} />
           <br />
           <input type="submit" value="Sign In" />
         </form>

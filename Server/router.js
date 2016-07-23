@@ -4,7 +4,10 @@ var controller = require('./controllers.js');
 var bodyParser = require('body-parser');
 
 //body-parser is need to received data being passed in from ajax request
-router.use(bodyParser.json());
+//We may or may not need the bodyParser.json(). But it works without it. -Hien 
+// router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({extended:false}));
+
 
 //To Do: 
 // (1) need to refactor the "url" after the skeleton of the app is complete
@@ -15,14 +18,13 @@ router.get('/', function(req, res){
 // User get method, for fetch users information? 
 // router.get('/users', controller.users.get);
 
-// User post method, for users sign up? 
-// router.post('/users', controller.users.post); 
+// User get method for users sign in.
+router.get('/signin', controller.users.get);
+// User post method for users sign up. 
+router.post('/signup', controller.users.post); 
 
-// newsFeeds get method, for fetch newFeeds to website?
-// controller.js 
-router.get('/newsfeed', function(req, res) {
-  controller.newsfeed.get(req, res);
-});
+// newsFeeds get method, for fetch newFeeds to website
+router.get('/newsfeed', controller.newsfeed.get);
 
 // newsFedds post method, for posting / updating user's information
 // router.post('/newsfeed', controller.newsfeeds.post);
