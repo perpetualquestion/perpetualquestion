@@ -1,6 +1,6 @@
 var bcrypt = require('bcrypt');
 
-module.exports {
+module.exports = {
   //creates hashed password
   hashPass: function(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(9));
