@@ -10,9 +10,13 @@ export default class SignInSignUpView extends React.Component {
   render() {
     return (    
       <div>
-        <SignIn />
-        <SignUp />
+        <div className='col-md-6'>
+          <SignIn />
+        </div>
+        <div className='col-md-6'>
+          <SignUp />
+        </div>
       </div>
-      );
+    );
   }
 }
