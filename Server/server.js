@@ -10,7 +10,6 @@ app.use(express.static(__dirname + '/../Client'));
 // Setting up router for request 
 app.use('/', router);
 
-
 //We may need middleware for express
 
 //check router.js to check how each endpoint is being handled

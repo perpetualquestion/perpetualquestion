@@ -4,7 +4,7 @@ var newsfeedModel = require('./db/newsfeedModel.js');
 module.exports = {
 	users: {
 		getAll: function (req, res) {
-			userModel.user.get(function (err, dataReceived) {
+			userModel.user.getAll(function (err, dataReceived) {
 				if(err){
 					//To Do: we can decide error handling later	
 				}
@@ -12,7 +12,7 @@ module.exports = {
 			});
 		},
 		getOne: function (req, res) {
-			userModel.user.get(function (err, dataReceived) {
+			userModel.user.getOne(function (err, dataReceived) {
 				if(err){
 					//To Do: we can decide error handling later	
 				}
