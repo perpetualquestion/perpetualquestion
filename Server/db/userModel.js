@@ -1,5 +1,5 @@
 var db = require('./db.js');
-
+var util.require('./utility.js');
 
 module.exports = {
   user: {
@@ -30,6 +30,7 @@ module.exports = {
     },  
     //POST method upload data from database 'perpetualHD'
     post: function (cb, data){
+      data.password = util.hashPass(data.password);
       // we may need refactor this base on the actual information of 'user'
       var query = 'insert into users set ?'; 
       db.query(query, data, function (err, dataReceived) {
