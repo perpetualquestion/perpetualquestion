@@ -8,23 +8,17 @@ var app = express();
 // Serving the 'client' folder
 app.use(express.static(__dirname + '/../Client'));
 // Setting up router for request 
-app.use('/', router)
+app.use('/', router);
 
 
 //We may need middleware for express
 
 //check router.js to check how each endpoint is being handled
 app.get('/', function(req, res){
-  res.render('index')
-})
-app.get('/newsfeed', router);
-app.post('/newsfeed', router);
-
-app.get('/search', router);
-
-
+  res.render('index');
+});
 
 //We may need to set up routing base on our need
 
-
 app.listen(3000); 
+;

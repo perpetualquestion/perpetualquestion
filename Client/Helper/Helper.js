@@ -5,29 +5,31 @@ module.exports = {
 	//sign up method try to create new user with 'post method', the obj contain informattion such as "user name, and password, "
 	//we might need to check if the userName exsit, and we might also need to pre-check other information, such as password is valid here or somewhere else
 	signup: function (obj) {
-		console.log(obj);
 		// var data = {something: obj};
 		$.ajax({
-			method: 'GET',
-			url: '/signup', 
+			method: 'POST',
+			url: '/signup',
+			dataType: 'json', 
 			data: obj
-			// contentType: 'application/json' 
 		})
 		.done(function (data) {
 			console.log('signup success for: ' + data);
 		});
 	}, 
 
-	//sign in can be a "get" or "post" request, we compare the "username" and "password" user provide to the information on database, to determine 
-	// if user name and password match 
-	signin: function (obj) {
+	//This method is used to compare username and password 
+	signin: function (callback, username) {
+		//data is wrap inside a object to be retrieved later in controllers.js
+		var wrapper = {username: username};
 		$.ajax({
-			method: 'POST',
-			url: '/signin',
-			data: obj
+			method: 'GET',
+			url: '/signup',
+			data: wrapper
 		})
-		.done(function (username) {
+		.done(function (data) {
 			console.log('signing in for: ' + username);
+			// callback is needed on SignIn.jsx
+			callback(data);
 		})
 	}, 
 
@@ -71,11 +73,11 @@ module.exports = {
 	//Seach for all the message given a particular user. Set to just Hien right now.
 	newsfeed: function (callback, username) {
 		//data is wrap inside a object to be retrieved later in controllers.js
-		var object = {username: username};
+		var wrapper = {username: username};
 		$.ajax({
 			method: 'GET',
 			url: '/newsfeed',
-			data: object
+			data: wrapper
 		})
 		.done(function (data) {
 			//Callback is setting State in NewsfeedEntryView

@@ -10,9 +10,9 @@ var NewsfeedEntryView = (props) => (
   // </ReactCSSTransitionGroup>
 
   //Display individual message for teacher.
-  <div>
+  <p className='lead bg-info'>
     {props.message.feeds}
-  </div>
+  </p>
 );
 
 export default NewsfeedEntryView;
