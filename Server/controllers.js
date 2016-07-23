@@ -3,9 +3,16 @@ var newsfeedModel = require('./db/newsfeedModel.js');
 
 module.exports = {
 	users: {
-		get: function (req, res) {
-			console.log(req.query.username);
-			userModel.user.get(function (err, dataReceived) {
+		getAll: function (req, res) {
+			userModel.user.getAll(function (err, dataReceived) {
+				if(err){
+					//To Do: we can decide error handling later	
+				}
+				res.json(dataReceived);
+			});
+		},
+		getOne: function (req, res) {
+			userModel.user.getOne(function (err, dataReceived) {
 				if(err){
 					//To Do: we can decide error handling later	
 				}
@@ -46,7 +53,7 @@ module.exports = {
 				res.sendStatus(201);
 			}, dataPosted)			
 		}
-	}
+	},
 
 	search: {
 		get: function (req, res) {

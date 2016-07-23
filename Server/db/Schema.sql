@@ -4,7 +4,7 @@ USE PerpetualHD;
 
 Create Table users (
   id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  username varchar(30) NOT NUll,
+  username varchar(30) NOT NUll UNIQUE,
   password varchar(30) NOT NULL,
   firstname varchar(30) NOT NULL, 
   lastname varchar(30) NOT NULL,
