@@ -16,7 +16,7 @@ module.exports = {
 				if(err){
 					//To Do: we can decide error handling later	
 				}
-				console.log('data received is:'+dataReceived)
+				console.log('data received is:' + dataReceived[0]);
 				res.json(dataReceived);
 			//Username pass in from Helper.js. Data is stored in request query for GET request.
 			}, req.query.username);

@@ -21,7 +21,7 @@ export default class SignIn extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     var requestObj = {
-      userName: this.state.userName.trim(),
+      username: this.state.userName.trim(),
       password: this.state.password.trim()
     }
     Helper.signin(requestObj);
@@ -31,11 +31,11 @@ export default class SignIn extends React.Component {
     return (    
       <div>
         <h2>Sign In</h2>
-        <form method="post" onSubmit={this.handleSubmit}>
+        <form method="post" onSubmit={this.handleSubmit.bind(this)}>
           <p>User Name:</p>
-          <input type="text" name="userName" value={this.state.userName} onChange={this.handleUserNameChange} />
+          <input type="text" name="userName" value={this.state.userName} onChange={this.handleUserNameChange.bind(this)} />
           <p>Password:</p>
-          <input type="text" name="password" value={this.state.password} onChange={this.handlePasswordChange} />
+          <input type="text" name="password" value={this.state.password} onChange={this.handlePasswordChange.bind(this)} />
           <br />
           <input type="submit" value="Sign In" />
         </form>
