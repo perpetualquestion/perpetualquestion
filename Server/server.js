@@ -28,10 +28,12 @@ app.get('/', function(req, res){
   }
   res.render('index');
 });
+
+
 app.get('/newsfeed', router);
 app.post('/newsfeed', router);
 
-app.get('/search', router);
+
 
 
 console.log("Listening to port 3000...");

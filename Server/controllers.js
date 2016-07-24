@@ -16,8 +16,9 @@ module.exports = {
 			userModel.user.getOne(function (err, dataReceived) {
 				if(err){
 					//To Do: we can decide error handling later	
+					console.log('here in controllers: ',err);
+					return;
 				}
-				console.log('data received is:' + dataReceived[0]);
 				res.json(dataReceived);
 			//Username pass in from Helper.js. Data is stored in request query for GET request.
 			}, req.query.username);

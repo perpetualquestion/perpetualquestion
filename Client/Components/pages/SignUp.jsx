@@ -12,7 +12,8 @@ export default class SignUp extends React.Component {
       lastName: '', 
       email: '', 
       github: '', 
-      linkedin: ''
+      linkedin: '',
+      skills: ''
     }
   }
 

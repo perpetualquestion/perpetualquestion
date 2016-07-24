@@ -10,7 +10,8 @@ export default class Profile extends React.Component {
       lastName: '', 
       userName: '', 
       github: '', 
-      linkedin: ''
+      linkedin: '',
+      skills: ''
     }
   }
 
@@ -18,7 +19,7 @@ export default class Profile extends React.Component {
     //we should pass-in the username of current-log-in user
     var user = 'Yuyi';
     console.log("Component did mount called?");
-    var update = function(obj){this.updateAll(obj);}.bind(this);
+    var update = this.updateAll.bind(this);
     Helper.searchProfile(function (data) {
       //Notice, data should be an object from successulf ajax call, and setProfile
       console.log(data[0]);
