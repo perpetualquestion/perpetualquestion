@@ -18,7 +18,7 @@ router.get('/', function(req, res){
   res.render('index');
 })
 
-router.get('/search', controller.users.getAll);
+//router.get('/search', controller.users.getAll);
 // User get method, for fetch users information? 
 // router.get('/users', controller.users.get);
 
@@ -39,7 +39,6 @@ router.get('/newsfeed', controller.newsfeed.get);
 // get method for fetch search list
 // controller.js 
 router.get('/search', function(req, res) {
-	console.log(req._parsedUrl.query);
   controller.search.get(req, res);
 });
 

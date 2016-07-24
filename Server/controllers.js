@@ -63,7 +63,6 @@ module.exports = {
 					//To Do: we can decide how to handle erro later
 					console.log('==========controller cb encounter error========>');
 				}
-				console.log(dataReceived);
 				res.json(dataReceived);
 				//Username pass in from Helper.js
 			}, req._parsedUrl.query);
