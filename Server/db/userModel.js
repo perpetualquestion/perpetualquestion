@@ -17,15 +17,21 @@ module.exports = {
       })
     },
     //GET method fetch specific username's data from database
-    getOne: function (cb, username) {
+    getOne: function (cb, username, password) {
       var query = 'select * from users where username=' + JSON.stringify(username);
       db.query(query, function (err, data) {
         //handle err with callback  
         if (err) {
           cb(err, null); 
         }
-        //handle data with callback
-        cb(null, data); 
+        if (util.validatePass(password, data.password)) {
+          //sets session to user logging in
+          req.session.username = username;
+          req.session.save();
+          console.log("# Session value set "+ req.session.username);
+          //handle data with callback
+          cb(null, data); 
+        }
       })
     },  
     //POST method upload data from database 'perpetualHD'
