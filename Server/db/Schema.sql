@@ -33,7 +33,7 @@ Create Table newsfeeds (
   feeds varchar(255)
 );
 
-Create Table lesseons (
+Create Table lessons (
   id int NOT NUll AUTO_INCREMENT PRIMARY KEY,
   lesson varchar(30) NOT NULL, 
   user_id int,

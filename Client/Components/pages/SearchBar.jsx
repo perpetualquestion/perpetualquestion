@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchList from './SearchList';
 var helper = require('../../Helper/Helper.js');
 
 export default class Search extends React.Component {
@@ -6,14 +7,19 @@ export default class Search extends React.Component {
     super();
     //default value of state is empty search text
     this.state = {
-      value: ''
+      searches: ''
     };
   }
 
   handleSearch(e) {
     e.preventDefault();
     var text = this.refs.text.value.trim();
-    helper.search(text);
+    var setState = this.setState.bind(this);
+    var state = this.state;
+    helper.search(text, function(data) {
+      setState({searches : data});
+      console.log('search results: ', state);
+    });
   }
 
   handleInputChange() {
@@ -29,6 +35,9 @@ export default class Search extends React.Component {
 
           <input type="submit" value="Search" />
         </form>
+        <SearchList
+          searches={this.state.searches}
+        />
       </div>
 
     );
