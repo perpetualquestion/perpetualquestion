@@ -37,5 +37,5 @@ Create Table lessons (
   id int NOT NUll AUTO_INCREMENT PRIMARY KEY,
   lesson varchar(30) NOT NULL, 
   user_id int,
-  FOREIGN KEY (user_id) REFERENCES users(id)
+  FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE
 );

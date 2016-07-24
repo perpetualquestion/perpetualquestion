@@ -27,4 +27,3 @@ console.log("Listening to port 3000...");
 //We may need to set up routing base on our need
 
 app.listen(3000); 
-;

@@ -15,10 +15,8 @@ export default class Search extends React.Component {
     e.preventDefault();
     var text = this.refs.text.value.trim();
     var setState = this.setState.bind(this);
-    var state = this.state;
     helper.search(text, function(data) {
       setState({searches : data});
-      console.log('search results: ', state);
     });
   }
 
