@@ -13,14 +13,14 @@ module.exports = {
 		// 	});
 		// },
 		getOne: function (req, res) {
-			console.log("session name", req.session.username);
-			console.log("request query", req.query);
+			// console.log("session name", req.session.username);
+			// console.log("request query", req.query);
 			if (req.session.username !== undefined) {
 				userModel.user.getOne(function (err, dataReceived) {
 					if(err){
 						//To Do: we can decide error handling later	
 					}
-					console.log('data received for profile is:' + dataReceived[0]);
+					// console.log('data received for profile is:' + dataReceived[0]);
 					res.json(dataReceived);
 				//Username pass in from Helper.js. Data is stored in request query for GET request.
 				}, req.session.username);				
@@ -28,7 +28,7 @@ module.exports = {
 				userModel.user.getOne(function (err, dataReceived) {
 					if(err) { }; 
 					//check password;
-					console.log('data received for signin', dataReceived);
+					// console.log('data received for signin', dataReceived);
 					if(!!dataReceived && dataReceived[0].password === req.query.password) {
 						req.session.username = req.query.username;
 						res.json(dataReceived);

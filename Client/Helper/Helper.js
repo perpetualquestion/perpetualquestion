@@ -81,7 +81,7 @@ module.exports = {
 		})
 		.done(function (data) {
 			//we may need to do something, such as filtering and comparing the search query with the data receive. 
-			console.log("response data is", data);
+			// console.log("response data is", data);
 			callback(data);
 		})
 	},
