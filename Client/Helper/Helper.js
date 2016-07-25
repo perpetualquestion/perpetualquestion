@@ -34,6 +34,16 @@ module.exports = {
 		})
 	}, 
 
+	signout: function () {
+		$.ajax({
+			method: 'GET',
+			url: '/signout'
+		})
+		.done(function (results) {
+			console.log(results);
+		})
+	}, 
+
 	//offerClass is a "post" to creating a class list with all informations, 
 	offerClass: function (obj) {
 		$.ajax({

@@ -37,7 +37,7 @@ module.exports = {
 					}
 				}, req.query.username);
 			} else {
-				res.redirect('/');
+				res.redirect('/signin');
 			}
 		},
 		post: function (req, res) {
@@ -53,6 +53,15 @@ module.exports = {
 				res.end();
 
 			}, dataPosted);
+		}, 
+		signout: function (req, res) {
+			req.session.destroy(function (err) {
+				if (err) { 
+					return err; 
+				} else {
+					res.redirect('/signin');
+				}
+			})
 		}
 	}, 
 

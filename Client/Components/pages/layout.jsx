@@ -3,6 +3,8 @@ import { Link } from "react-router";
 import Newfeeds from "./NewsfeedView";
 import SignIn from './SignInSignUpView';
 import Search from './SearchBar';
+import Helper from '../../Helper/Helper';
+
 
 
 export default class Layout extends React.Component {
@@ -22,6 +24,10 @@ export default class Layout extends React.Component {
   }
   isActive(value){
     return ((value===this.state.selected) ? 'active':'default');
+  }
+
+  signout() {
+  	Helper.signout();
   }
 
 	render() {
@@ -46,6 +52,7 @@ export default class Layout extends React.Component {
 								<li className={this.isActive('signin')} onClick={ this.setFilter.bind(this, 'signin')}>
 									<Link to="signin">Sign In/Up</Link>
 								</li>
+								<li onClick={ this.signout.bind(this) } >Sign Out</li>
 							</ul>
 						</div>
 					</div>
