@@ -13,7 +13,7 @@ export default class Layout extends React.Component {
   }
 
 	navigate() {
-		this.props.history.pushState(null, '/newfeeds');
+		this.props.history.pushState(null, '/');
 	}	
   
   setFilter(filter) {
@@ -44,9 +44,6 @@ export default class Layout extends React.Component {
 								</li>
 								<li className={this.isActive('signin')} onClick={ this.setFilter.bind(this, 'signin')}>
 									<Link to="signin">Sign In/Up</Link>
-								</li>
-								<li>
-									<button onClick={this.navigate.bind(this)}>test</button>
 								</li>
 							</ul>
 						</div>
