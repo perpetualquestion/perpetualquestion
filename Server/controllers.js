@@ -129,7 +129,20 @@ module.exports = {
 				res.json(dataReceived);
 				//Username pass in from Helper.js
 			}, req.session.index);
-		}
+		},
+		post: function (req, res) {
+			//Data is stored in the request body for POST request.
+			var dataPosted = req.body;
+			lessonsModel.lessons.post(function (err, dataReceived) {
+				if(err){
+					//To Do: we can decide how to handle error later
+				}
+				req.session.index = dataReceived.insertId;
+				req.session.username = req.body.username;
+				res.redirect('/profile');
+
+			}, dataPosted);
+		}, 
 	}
 }; 
 
