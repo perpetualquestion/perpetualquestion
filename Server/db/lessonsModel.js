@@ -29,6 +29,18 @@ module.exports = {
         console.log('line 29 in lessonModel ', data);
         cb(null, data);
       });
+    },
+    get: function (cb, user_id){
+      var query = "select * from lessons where teacher_id=" + JSON.stringify(user_id);
+      db.query(query, function (err, data) {
+        //handle err with callback  
+        if (err) {
+          cb(err, null); 
+          console.log('------------here in the lessonsModel query encounter err: ' + err);
+        }
+        //handle data with callback
+        cb(null, data); 
+      })
     }  
   }
 }; 

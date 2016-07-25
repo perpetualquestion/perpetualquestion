@@ -114,6 +114,17 @@ module.exports = {
 			} else {
 				res.redirect('/');
 			}
+		},
+		getAll: function (req, res) {
+			console.log(req.query, req.session);
+			lessonsModel.lessons.get(function (err, dataReceived) {
+				if (err) {
+					//To Do: we can decide how to handle erro later
+					console.log('==========controller cb encounter error========>');
+				}
+				res.json(dataReceived);
+				//Username pass in from Helper.js
+			}, req.session.id);
 		}
 	}
 }; 

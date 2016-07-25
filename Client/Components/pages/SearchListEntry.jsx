@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router";
-import Newfeeds from "./NewsfeedView";
+import Newsfeed from "./NewsfeedView";
 import Helper from "../../Helper/Helper";
 
 export default class SearchListEntry extends React.Component {

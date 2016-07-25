@@ -96,13 +96,11 @@ module.exports = {
 	},
 
 	//Seach for all the message given a particular user. Set to just Hien right now.
-	newsfeed: function (callback, username) {
+	newsfeed: function (callback) {
 		//data is wrap inside a object to be retrieved later in controllers.js
-		var wrapper = {username: username};
 		$.ajax({
 			method: 'GET',
 			url: '/newsfeed',
-			data: wrapper
 		})
 		.done(function (data) {
 			//Callback is setting State in NewsfeedEntryView
