@@ -25,7 +25,16 @@ module.exports = {
 				//Username pass in from Helper.js. Data is stored in request query for GET request.
 				}, req.session.username);				
 			} else {
-				
+				userModel.user.getOne(function (err, dataReceived) {
+					if(err) { }; 
+					//check password; 
+					if(dataReceived[0].password === req.query.password) {
+						req.session.username = req.query.username;
+						res.json(dataReceived);
+					} else {
+						res.json("ERROR")
+					}
+				}, req.query.username);
 			}
 		},
 		post: function (req, res) {

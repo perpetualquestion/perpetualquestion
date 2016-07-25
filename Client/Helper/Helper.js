@@ -26,9 +26,11 @@ module.exports = {
 			data: data
 		})
 		.done(function (results) {
-			console.log('here in helper: ', results);
-			callback(results);
-			//console.log('signing in for: ', results[0].username, results[0].password);
+			if (results === "ERROR") {
+				alert('Can not find match of username and password, please try again');
+			} else {
+				console.log('signing in for: ', results[0].username, results[0].password);				
+			}
 		})
 	}, 
 
