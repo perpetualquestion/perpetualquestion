@@ -55,7 +55,7 @@ module.exports = {
 	}, 
 
 	//enroll is a "post" to update the information on the course database, then it will populate the particular course on both the "student" and "teacher" profile / newsfeed page
-	enroll: function (obj) {
+	enroll: function (obj, cb) {
 		$.ajax({
 			method: 'POST', 
 			url: '/enroll',
@@ -63,6 +63,7 @@ module.exports = {
 		})
 		.done(function (enrolled) {
 			console.log('class requested: ' + enrolled);
+			cb(enrolled);
 		})
 	},
 
