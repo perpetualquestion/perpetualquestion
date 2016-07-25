@@ -37,6 +37,7 @@ module.exports = {
     //POST method upload data from database 'perpetualHD'
     post: function (cb, data){
       data.password = util.hashPass(data.password);
+      console.log('inside usermodel', data);
       // we may need refactor this base on the actual information of 'user'
       var query = 'insert into users set ?'; 
       db.query(query, data, function (err, dataReceived) {

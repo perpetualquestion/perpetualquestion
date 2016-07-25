@@ -26,10 +26,12 @@ module.exports = {
 		post: function (req, res) {
 			//Data is stored in the request body for POST request.
 			var dataPosted = req.body;
+			console.log('inside controller', dataPosted);
 			userModel.user.post(function (err, dataReceived) {
 				if(err){
 					//To Do: we can decide how to handle error later
 				}
+				// console.log(req.session)
 				res.end();
 
 			}, dataPosted);

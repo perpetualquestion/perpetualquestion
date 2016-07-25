@@ -6,6 +6,7 @@ module.exports = {
 	//we might need to check if the userName exsit, and we might also need to pre-check other information, such as password is valid here or somewhere else
 	signup: function (data) {
 		// var data = {something: obj};
+		// console.log('at helper', data);
 		$.ajax({
 			method: 'POST',
 			url: '/signup',
