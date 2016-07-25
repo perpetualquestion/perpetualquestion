@@ -41,15 +41,26 @@ export default class Profile extends React.Component {
 
 	render() {
 		return (
-      <div>
-  			<h3>Profile</h3>
-        <p>First Name:  <span> {this.state.firstName} </span> </p>
-        <p>Last Name:  <span> {this.state.lastName} </span> </p>
-        <p>User Name:  <span> {this.state.userName} </span> </p>
-        <p>Github:  <span> {this.state.github} </span> </p>
-        <p>Linkedin:  <span> {this.state.linkedin} </span> </p>
-        <p>Email:  <span> {this.state.email} </span> </p>
-      </div> 
+        <div>
+          <div className='col-md-6'>
+            <h2>Profile</h2>
+            <p>First Name:  <span> {this.state.firstName} </span> </p>
+            <p>Last Name:  <span> {this.state.lastName} </span> </p>
+            <p>User Name:  <span> {this.state.userName} </span> </p>
+            <p>Github:  <span> {this.state.github} </span> </p>
+            <p>Linkedin:  <span> {this.state.linkedin} </span> </p>
+            <p>Email:  <span> {this.state.email} </span> </p>
+          </div>
+          <div className='col-md-6'>
+            <h2>Add Lessons</h2>
+            <form method="post" onSubmit={}>
+              <p>Subject:</p>
+              <input type="text" ref="username" />
+              <br />
+              <input type="submit" value="Add" />
+            </form>
+          </div>   
+        </div>
 		);
 	}
 }
