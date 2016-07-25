@@ -9,7 +9,7 @@ var app = express();
 // Serving the 'client' folder
 app.use(express.static(__dirname + '/../Client'));
 // Setting up router for request 
-app.use('/', router);
+// app.use('/', router);
 app.use(cookieParser());
 app.use(session({
   secret: 'supersecretstring',
@@ -17,23 +17,23 @@ app.use(session({
   resave: true
 }));
 //We may need middleware for express
+app.use('/', router);
 
 //check router.js to check how each endpoint is being handled
-app.get('/', function(req, res){
-  //checks if session has been created
-  if (req.session.username == undefined) {
-    console.log("# Username not set in session yet");
-  } else {
-    console.log("# Username from session: "+ req.session.username);
-  }
-  res.render('index');
-});
 
+// app.get('/', function(req, res){
+//   //checks if session has been created
+//   if (req.session.username == undefined) {
+//     console.log("# Username not set in session yet");
+//   } else {
+//     console.log("# Username from session: "+ req.session.username);
+//   }
+//   res.render('index');
+// });
+// app.get('/newsfeed', router);
+// app.post('/newsfeed', router);
 
-app.get('/newsfeed', router);
-app.post('/newsfeed', router);
-
-
+// app.get('/search', router);
 
 
 console.log("Listening to port 3000...");

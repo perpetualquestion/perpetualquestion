@@ -4,24 +4,29 @@ var lessonsModel = require('./db/lessonsModel.js');
 
 module.exports = {
 	users: {
-		getAll: function (req, res) {
-			userModel.user.getAll(function (err, dataReceived) {
-				if(err){
-					//To Do: we can decide error handling later	
-				}
-				res.json(dataReceived);
-			});
-		},
+		// getAll: function (req, res) {
+		// 	userModel.user.getAll(function (err, dataReceived) {
+		// 		if(err){
+		// 			//To Do: we can decide error handling later	
+		// 		}
+		// 		res.json(dataReceived);
+		// 	});
+		// },
 		getOne: function (req, res) {
-			userModel.user.getOne(function (err, dataReceived) {
-				if(err){
-					//To Do: we can decide error handling later	
-					console.log('here in controllers: ',err);
-					return;
-				}
-				res.json(dataReceived);
-			//Username pass in from Helper.js. Data is stored in request query for GET request.
-			}, req.query.username);
+			console.log(req.session.username);
+			console.log(req.query);
+			if (req.session.username !== undefined) {
+				userModel.user.getOne(function (err, dataReceived) {
+					if(err){
+						//To Do: we can decide error handling later	
+					}
+					console.log('data received is:' + dataReceived[0]);
+					res.json(dataReceived);
+				//Username pass in from Helper.js. Data is stored in request query for GET request.
+				}, req.session.username);				
+			} else {
+				
+			}
 		},
 		post: function (req, res) {
 			//Data is stored in the request body for POST request.
@@ -31,7 +36,8 @@ module.exports = {
 				if(err){
 					//To Do: we can decide how to handle error later
 				}
-				// console.log(req.session)
+				req.session.username = req.body.username;
+				console.log('request session', req.session)
 				res.end();
 
 			}, dataPosted);
