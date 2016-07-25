@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router";
+import Newfeeds from "./NewsfeedView";
+import SignIn from './SignInSignUpView';
+
 
 export default class Layout extends React.Component {
 	constructor(props) {
@@ -10,14 +13,11 @@ export default class Layout extends React.Component {
   }
 
 	navigate() {
-		console.log(this.props.history);
-		this.props.history.pushState(null, '/profile');
-	}
-
-	
+		this.props.history.pushState(null, '/newfeeds');
+	}	
   
   setFilter(filter) {
-    this.setState({selected  : filter});
+    this.setState({selected : filter});
   }
   isActive(value){
     return ((value===this.state.selected) ? 'active':'default');
@@ -45,6 +45,9 @@ export default class Layout extends React.Component {
 								<li className={this.isActive('signin')} onClick={ this.setFilter.bind(this, 'signin')}>
 									<Link to="signin">Sign In/Up</Link>
 								</li>
+								<li>
+									<button onClick={this.navigate.bind(this)}>test</button>
+								</li>
 							</ul>
 						</div>
 					</div>
@@ -52,6 +55,7 @@ export default class Layout extends React.Component {
 				<div>
 					{this.props.children}
 				</div>
+				
 			</div>
 		);
 	}

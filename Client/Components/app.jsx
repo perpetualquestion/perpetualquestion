@@ -7,7 +7,7 @@ import Layout from "./pages/layout";
 import Newfeeds from "./pages/NewsfeedView";
 import Profile from "./pages/profile";
 import Search from "./pages/SearchBar";
-import SignIn from './pages/SignInSignUpView';
+import SignIn from './pages/SignIn';
 
 const app = document.getElementById('app');
 

@@ -1,6 +1,12 @@
 import React from 'react';
 import Helper from '../../Helper/Helper';
 import Profile from './profile';
+import { Route } from 'react-router';
+import Newfeeds from "./NewsfeedView";
+import SignUp from './SignUp'
+
+
+
 
 export default class SignIn extends React.Component {
   constructor (props) {
@@ -17,18 +23,9 @@ export default class SignIn extends React.Component {
     }
   }
 
-  //handleUserNameChange(e) {
-    //this.setState({username: e.target.value});
-  //}
-
-  //handlePasswordChange(e) {
-    //this.setState({password: e.target.value});  
-  //}
-
-  //navigate() {
-    //console.log(this.props);
-    //this.props.history.pushState(null, '/profile');
-  //}
+  navigate() {
+    this.props.history.pushState(null, '/newfeeds');
+  } 
 
   handleSignin(e) {
     e.preventDefault();
@@ -42,8 +39,10 @@ export default class SignIn extends React.Component {
       username: username,
       password: password
     }
+    console.log(this.props);
     var setState = this.setState.bind(this);
     Helper.signin(requestObj, function(data) {
+      
       setState({
         username: data[0].username, 
         password: data[0].password, 
@@ -54,29 +53,40 @@ export default class SignIn extends React.Component {
         linkedin: data[0].linkedin,
         skills: data[0].skills
       });
+
     });
 
   }
 
+  
   render() {
-    //console.log('this is Signin line 61: ', this.props.navigate);
+    console.log(this.state.username);
     if (!this.state.username) {
-      return (    
-        <div>
-          <h2>Sign In</h2>
-          <form method="post" onSubmit={this.handleSignin.bind(this)}>
-            <p>User Name:</p>
-            <input type="text" ref="username" />
-            <p>Password:</p>
-            <input type="text" ref="password" />
-            <br />
-            <input type="submit" value="Sign In" />
-          </form>
+      return (  
+        <div>  
+          <div className='col-md-6'>
+            <h2>Sign In</h2>
+            <form method="post" onSubmit={this.handleSignin.bind(this)}>
+              <p>User Name:</p>
+              <input type="text" ref="username" />
+              <p>Password:</p>
+              <input type="text" ref="password" />
+              <br />
+              <input type="submit" value="Sign In" />
+            </form>
+          </div>
+          <div className='col-md-6'>
+              <SignUp />
+          </div>
         </div>
       );
     } else {
-      return (<Profile />);
-      //this.props.navigate();
+      return (
+        <div>
+          <h4>You are signed in as {this.state.username}</h4>
+        </div>
+      );
     }
   }
+
 }
