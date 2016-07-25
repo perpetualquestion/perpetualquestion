@@ -15,7 +15,7 @@ export default class SearchListEntry extends React.Component {
           {this.props.item.firstname + ' ' + this.props.item.lastname}
         </td>
         <td onClick={this.passProps.bind(this)}>
-          {this.props.item.user_id}  
+          {this.props.item.lesson}  
         </td>
 
       </tr>
