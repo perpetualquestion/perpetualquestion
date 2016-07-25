@@ -1,7 +1,7 @@
 import React from 'react';
 import Helper from '../../Helper/Helper';
 
-export default class Signout extends React.Component {
+export default class SignOut extends React.Component {
   constructor (props) {
     super(props);
 

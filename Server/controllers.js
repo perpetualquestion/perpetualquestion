@@ -35,7 +35,7 @@ module.exports = {
 						console.log('sucess log in');
 						res.redirect('/#/search');
 					} else {
-						res.json("ERROR")
+						res.json("ERROR");
 					}
 				}, req.query.username);
 			} else {
