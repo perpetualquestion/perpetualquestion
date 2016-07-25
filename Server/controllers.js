@@ -28,10 +28,12 @@ module.exports = {
 				userModel.user.getOne(function (err, dataReceived) {
 					if(err) { }; 
 					//check password;
-					// console.log('data received for signin', dataReceived);
-					if(!!dataReceived && dataReceived[0].password === req.query.password) {
+					console.log('data received for signin', dataReceived);
+					if( dataReceived.length != 0 && dataReceived[0].password === req.query.password) {
+						req.session.id = dataReceived[0].id;
 						req.session.username = req.query.username;
-						res.json(dataReceived);
+						console.log('sucess log in');
+						res.redirect('/#/search');
 					} else {
 						res.json("ERROR")
 					}
@@ -48,9 +50,10 @@ module.exports = {
 				if(err){
 					//To Do: we can decide how to handle error later
 				}
+				req.session.id = dataReceived.insertId;
 				req.session.username = req.body.username;
-				console.log('request session', req.session)
-				res.end();
+				console.log('request session', dataReceived.insertId);
+				res.redirect('/search');
 
 			}, dataPosted);
 		}, 
