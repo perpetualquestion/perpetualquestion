@@ -12,7 +12,8 @@ export default class SignUp extends React.Component {
       lastName: '', 
       email: '', 
       github: '', 
-      linkedin: ''
+      linkedin: '',
+      skills: ''
     }
   }
 
@@ -35,7 +36,7 @@ export default class SignUp extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // alert('submit get call');
+    alert('submit get call');
     if(this.state.password === this.state.confirmPassword) {  
       var requestObj = {
         username: this.state.userName.trim(),

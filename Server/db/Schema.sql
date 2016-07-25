@@ -4,7 +4,7 @@ USE PerpetualHD;
 
 Create Table users (
   id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  username varchar(30) NOT NUll,
+  username varchar(30) NOT NUll UNIQUE,
   password varchar(30) NOT NULL,
   firstname varchar(30) NOT NULL, 
   lastname varchar(30) NOT NULL,
@@ -33,9 +33,9 @@ Create Table newsfeeds (
   feeds varchar(255)
 );
 
-Create Table lesseons (
+Create Table lessons (
   id int NOT NUll AUTO_INCREMENT PRIMARY KEY,
   lesson varchar(30) NOT NULL, 
   user_id int,
-  FOREIGN KEY (user_id) REFERENCES users(id)
+  FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE
 );

@@ -1,14 +1,27 @@
-import SearchListEntry from '/SearchListEntry.jsx'
+import React from 'react';
+import _ from 'lodash';
+import SearchListEntry from './SearchListEntry'
 
-var SearchList = (props) => (
+export default class SearchList extends React.Component {
+	renderItems() {
+		return _.map(this.props.searches, (item, index) =>
+		<SearchListEntry key={index} item={item} />);
+	}
 
-  //Need to update with property handed down
-  <div> 
-    {props.searches.map(search => (      //Iterates through search data and creates an entry for each to populate list
-      <SearchListEntry search={search} /> 
-    ))}
-  </div>
+  render() {
+  	return (
+  		<table>
+  			<tbody>
+  				<tr>
+  					<th width="200px">Name</th>
+            <th width="200px">Lesson</th>
+  				</tr>
+  				{this.renderItems()}
+  			</tbody>
+  		</table>
+  	);
+  }
 
-);
 
-export default SearchList;
+
+}
