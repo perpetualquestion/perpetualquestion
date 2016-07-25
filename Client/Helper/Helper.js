@@ -6,6 +6,7 @@ module.exports = {
 	//we might need to check if the userName exsit, and we might also need to pre-check other information, such as password is valid here or somewhere else
 	signup: function (data) {
 		// var data = {something: obj};
+		// console.log('at helper', data);
 		$.ajax({
 			method: 'POST',
 			url: '/signup',
@@ -25,9 +26,11 @@ module.exports = {
 			data: data
 		})
 		.done(function (results) {
-			console.log('here in helper: ', results);
-			callback(results);
-			//console.log('signing in for: ', results[0].username, results[0].password);
+			if (results === "ERROR") {
+				alert('Can not find match of username and password, please try again');
+			} else {
+				console.log('signing in for: ', results[0].username, results[0].password);				
+			}
 		})
 	}, 
 
@@ -70,16 +73,15 @@ module.exports = {
 	},
 
 		//search is a "get" request to database, we compare information and to the search query, 
-	searchProfile: function (callback, username) {
-		var searchObj = {username: username}
+	searchProfile: function (callback) {
+		// var searchObj = {username: username}
 		$.ajax({
 			method: 'GET',
-			url: '/profile',
-			data: searchObj
+			url: '/profile'
 		})
 		.done(function (data) {
 			//we may need to do something, such as filtering and comparing the search query with the data receive. 
-			console.log("response data is", data);
+			// console.log("response data is", data);
 			callback(data);
 		})
 	},
