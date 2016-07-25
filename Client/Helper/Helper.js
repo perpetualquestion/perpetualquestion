@@ -28,9 +28,17 @@ module.exports = {
 		.done(function (results) {
 			if (results === "ERROR") {
 				alert('Can not find match of username and password, please try again');
-			} else {
-				console.log('signing in for: ', results[0].username, results[0].password);				
 			}
+		})
+	}, 
+
+	signout: function () {
+		$.ajax({
+			method: 'GET',
+			url: '/signout'
+		})
+		.done(function (results) {
+			console.log(results);
 		})
 	}, 
 

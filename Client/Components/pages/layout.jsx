@@ -2,13 +2,16 @@ import React from "react";
 import { Link } from "react-router";
 import Newfeeds from "./NewsfeedView";
 import SignIn from './SignInSignUpView';
+import Search from './SearchBar';
+import Helper from '../../Helper/Helper';
+
 
 
 export default class Layout extends React.Component {
 	constructor(props) {
-    super();
+    super(props);
     this.state = {
-      selected: ''
+      selected: 'something'
     };
   }
 
@@ -23,6 +26,10 @@ export default class Layout extends React.Component {
     return ((value===this.state.selected) ? 'active':'default');
   }
 
+  signout() {
+  	Helper.signout();
+  }
+
 	render() {
 		return (
 			<div>
@@ -34,10 +41,10 @@ export default class Layout extends React.Component {
 						<div>
 							<ul className="nav navbar-nav">
 								<li className={this.isActive('')} onClick={ this.setFilter.bind(this, '')}>
-									<Link to="search">Search</Link>
+									<Link to="search" >Search</Link>
 								</li>
 								<li className={this.isActive('newfeeds')} onClick={ this.setFilter.bind(this, 'newfeeds')}>
-									<Link to="newfeeds">Newfeeds</Link>
+									<Link to="newfeeds" params={{state: this.state}}>Newfeeds</Link>
 								</li>
 								<li className={this.isActive('profile')} onClick={ this.setFilter.bind(this, 'profile')}>
 									<Link to="profile">Profile</Link>
@@ -45,6 +52,7 @@ export default class Layout extends React.Component {
 								<li className={this.isActive('signin')} onClick={ this.setFilter.bind(this, 'signin')}>
 									<Link to="signin">Sign In/Up</Link>
 								</li>
+								<li onClick={ this.signout.bind(this) } >Sign Out</li>
 							</ul>
 						</div>
 					</div>

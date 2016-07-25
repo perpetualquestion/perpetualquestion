@@ -27,8 +27,9 @@ router.get('/signin', controller.users.getOne);
 // User post method for users sign up. 
 router.post('/signup', controller.users.post); 
 
-router.get('/profile', controller.users.getOne);
+router.get('/signout', controller.users.signout); 
 
+router.get('/profile', controller.users.getOne);
 
 // newsFeeds get method, for fetch newFeeds to website
 router.get('/newsfeed', controller.newsfeed.get);

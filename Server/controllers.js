@@ -28,16 +28,18 @@ module.exports = {
 				userModel.user.getOne(function (err, dataReceived) {
 					if(err) { }; 
 					//check password;
-					// console.log('data received for signin', dataReceived);
-					if(!!dataReceived && dataReceived[0].password === req.query.password) {
+					console.log('data received for signin', dataReceived);
+					if( dataReceived.length != 0 && dataReceived[0].password === req.query.password) {
+						req.session.id = dataReceived[0].id;
 						req.session.username = req.query.username;
-						res.json(dataReceived);
+						console.log('sucess log in');
+						res.redirect('/#/search');
 					} else {
 						res.json("ERROR")
 					}
 				}, req.query.username);
 			} else {
-				res.redirect('/');
+				res.redirect('/signin');
 			}
 		},
 		post: function (req, res) {
@@ -48,34 +50,44 @@ module.exports = {
 				if(err){
 					//To Do: we can decide how to handle error later
 				}
+				req.session.id = dataReceived.insertId;
 				req.session.username = req.body.username;
-				console.log('request session', req.session)
-				res.end();
+				console.log('request session', dataReceived.insertId);
+				res.redirect('/search');
 
 			}, dataPosted);
+		}, 
+		signout: function (req, res) {
+			req.session.destroy(function (err) {
+				if (err) { 
+					return err; 
+				} else {
+					res.redirect('/signin');
+				}
+			})
 		}
 	}, 
 
-	newsfeed: {
-		get: function (req, res) {
-			newsfeedModel.newsfeed.get(function (err, dataReceived) {
-				if (err) {
-					//To Do: we can decide how to handle erro later
-				}
-				res.json(dataReceived);
-				//Username pass in from Helper.js. Data is stored in request query for GET request.
-			}, req.query.username);
-		}, 
-		post: function (req, res) {
-			var dataPosted = req.query;
-			newsfeedModel.newsfeed.post(function (err, dataReceived) {
-				if(err) {
-					//To Do: we can decide how to handle error later
-				}
-				res.sendStatus(201);
-			}, dataPosted)			
-		}
-	},
+	// newsfeed: {
+	// 	get: function (req, res) {
+	// 		newsfeedModel.newsfeed.get(function (err, dataReceived) {
+	// 			if (err) {
+	// 				//To Do: we can decide how to handle erro later
+	// 			}
+	// 			res.json(dataReceived);
+	// 			//Username pass in from Helper.js. Data is stored in request query for GET request.
+	// 		}, req.query.username);
+	// 	}, 
+	// 	post: function (req, res) {
+	// 		var dataPosted = req.query;
+	// 		newsfeedModel.newsfeed.post(function (err, dataReceived) {
+	// 			if(err) {
+	// 				//To Do: we can decide how to handle error later
+	// 			}
+	// 			res.sendStatus(201);
+	// 		}, dataPosted)			
+	// 	}
+	// },
 
 	search: {
 		get: function (req, res) {
@@ -87,6 +99,20 @@ module.exports = {
 				res.json(dataReceived);
 				//Username pass in from Helper.js
 			}, req._parsedUrl.query);
+		},
+		update: function(req, res) {
+			if (req.session.username !== undefined) {
+				lessonsModel.user.update(function (err, dataReceived) {
+					if(err){
+						//To Do: we can decide error handling later	
+					}
+					// console.log('data received for profile is:' + dataReceived[0]);
+					res.json(dataReceived);
+				//Username pass in from Helper.js. Data is stored in request query for GET request.
+				}, req.session.id);				
+			} else {
+				res.redirect('/');
+			}
 		}
 	}
 }; 
