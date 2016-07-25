@@ -36,8 +36,8 @@ Create Table users (
 Create Table lessons (
   id int NOT NUll AUTO_INCREMENT PRIMARY KEY,
   lesson varchar(30) NOT NULL, 
-  teacher_id int,
   student_id int,
-  FOREIGN KEY (teacher_id) REFERENCES users(id) ON UPDATE CASCADE,
-  FOREIGN KEY (student_id) REFERENCES users(id) ON UPDATE CASCADE
+  teacher_id int,
+  FOREIGN KEY (student_id) REFERENCES users(id) ON UPDATE CASCADE,
+  FOREIGN KEY (teacher_id) REFERENCES users(id) ON UPDATE CASCADE
 );
