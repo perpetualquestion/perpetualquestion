@@ -18,14 +18,16 @@ module.exports = {
 	}, 
 
 	//This method is used to compare username and password 
-	signin: function (data) {
+	signin: function (data, callback) {
 		$.ajax({
 			method: 'GET',
 			url: '/signin',
 			data: data
 		})
 		.done(function (results) {
-			console.log('signing in for: ', results[0].username, results[0].password);
+			console.log('here in helper: ', results);
+			callback(results);
+			//console.log('signing in for: ', results[0].username, results[0].password);
 		})
 	}, 
 
@@ -55,14 +57,13 @@ module.exports = {
 
 
 	//search is a "get" request to database, we compare information and to the search query, 
-	search: function (searchObj, callback) {
+	search: function (searchString, callback) {
 		$.ajax({
 			method: 'GET',
 			url: '/search',
-			data: searchObj
+			data: searchString
 		})
 		.done(function (data) {
-			console.log(data[0]);
 			callback(data);
 			//we may need to do something, such as filtering and comparing the search query with the data receive. 
 		})

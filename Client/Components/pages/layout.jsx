@@ -1,13 +1,29 @@
 import React from "react";
 import { Link } from "react-router";
+import Newfeeds from "./NewsfeedView";
+import SignIn from './SignInSignUpView';
+
 
 export default class Layout extends React.Component {
+	constructor(props) {
+    super();
+    this.state = {
+      selected: ''
+    };
+  }
+
 	navigate() {
 		this.props.history.pushState(null, '/');
-	}
+	}	
+  
+  setFilter(filter) {
+    this.setState({selected : filter});
+  }
+  isActive(value){
+    return ((value===this.state.selected) ? 'active':'default');
+  }
 
 	render() {
-
 		return (
 			<div>
 				<nav className="navbar navbar-inverse">
@@ -17,10 +33,18 @@ export default class Layout extends React.Component {
 						</div>
 						<div>
 							<ul className="nav navbar-nav">
-								<li className="active"><Link to="search">Search</Link></li>
-								<li><Link to="newfeeds">Newfeeds</Link></li>
-								<li><Link to="profile">Profile</Link></li>
-								<li><Link to="signin">Sign In/Up</Link></li>
+								<li className={this.isActive('')} onClick={ this.setFilter.bind(this, '')}>
+									<Link to="search">Search</Link>
+								</li>
+								<li className={this.isActive('newfeeds')} onClick={ this.setFilter.bind(this, 'newfeeds')}>
+									<Link to="newfeeds">Newfeeds</Link>
+								</li>
+								<li className={this.isActive('profile')} onClick={ this.setFilter.bind(this, 'profile')}>
+									<Link to="profile">Profile</Link>
+								</li>
+								<li className={this.isActive('signin')} onClick={ this.setFilter.bind(this, 'signin')}>
+									<Link to="signin">Sign In/Up</Link>
+								</li>
 							</ul>
 						</div>
 					</div>
@@ -28,6 +52,7 @@ export default class Layout extends React.Component {
 				<div>
 					{this.props.children}
 				</div>
+				
 			</div>
 		);
 	}
