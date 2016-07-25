@@ -27,8 +27,9 @@ module.exports = {
 			} else {
 				userModel.user.getOne(function (err, dataReceived) {
 					if(err) { }; 
-					//check password; 
-					if(dataReceived[0].password === req.query.password) {
+					//check password;
+					console.log(dataReceived);
+					if(!!dataReceived && dataReceived[0].password === req.query.password) {
 						req.session.username = req.query.username;
 						res.json(dataReceived);
 					} else {
