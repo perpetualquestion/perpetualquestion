@@ -2,13 +2,14 @@ import React from "react";
 import { Link } from "react-router";
 import Newfeeds from "./NewsfeedView";
 import SignIn from './SignInSignUpView';
+import Search from './SearchBar';
 
 
 export default class Layout extends React.Component {
 	constructor(props) {
-    super();
+    super(props);
     this.state = {
-      selected: ''
+      selected: 'something'
     };
   }
 
@@ -34,10 +35,10 @@ export default class Layout extends React.Component {
 						<div>
 							<ul className="nav navbar-nav">
 								<li className={this.isActive('')} onClick={ this.setFilter.bind(this, '')}>
-									<Link to="search">Search</Link>
+									<Link to="search" >Search</Link>
 								</li>
 								<li className={this.isActive('newfeeds')} onClick={ this.setFilter.bind(this, 'newfeeds')}>
-									<Link to="newfeeds">Newfeeds</Link>
+									<Link to="newfeeds" params={{state: this.state}}>Newfeeds</Link>
 								</li>
 								<li className={this.isActive('profile')} onClick={ this.setFilter.bind(this, 'profile')}>
 									<Link to="profile">Profile</Link>

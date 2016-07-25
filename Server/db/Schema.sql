@@ -26,16 +26,18 @@ Create Table users (
 -- );
 
 -- This is the table Hien needs to for dummy data 
-Create Table newsfeeds (
-  id int NOT NUll AUTO_INCREMENT PRIMARY KEY,
-  sender varchar(30) NOT NULL, 
-  receiver varchar(30) NOT NULL,
-  feeds varchar(255)
-);
+-- Create Table newsfeeds (
+--   id int NOT NUll AUTO_INCREMENT PRIMARY KEY,
+--   sender varchar(30) NOT NULL, 
+--   receiver varchar(30) NOT NULL,
+--   feeds varchar(255)
+-- );
 
 Create Table lessons (
   id int NOT NUll AUTO_INCREMENT PRIMARY KEY,
   lesson varchar(30) NOT NULL, 
-  user_id int,
-  FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE
+  teacher_id int,
+  student_id int,
+  FOREIGN KEY (teacher_id) REFERENCES users(id) ON UPDATE CASCADE,
+  FOREIGN KEY (student_id) REFERENCES users(id) ON UPDATE CASCADE
 );
