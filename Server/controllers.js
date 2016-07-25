@@ -101,15 +101,16 @@ module.exports = {
 			}, req._parsedUrl.query);
 		},
 		update: function(req, res) {
+			console.log('hasdjasd ', req.body, req.session);
 			if (req.session.username !== undefined) {
-				lessonsModel.user.update(function (err, dataReceived) {
+				lessonsModel.lessons.update(function (err, dataReceived) {
 					if(err){
 						//To Do: we can decide error handling later	
 					}
 					// console.log('data received for profile is:' + dataReceived[0]);
 					res.json(dataReceived);
 				//Username pass in from Helper.js. Data is stored in request query for GET request.
-				}, req.session.id);				
+				}, req.session.username, req.body);				
 			} else {
 				res.redirect('/');
 			}

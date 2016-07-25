@@ -16,15 +16,17 @@ module.exports = {
         cb(null, data); 
       })
     },
-    update: function (cb, data) {
+    update: function (cb, currentUser, data) {
       //the data must have username as one of its property
-      var query = 'update lesson set ? where (teacher_id= :teacher_id and lesson=:lesson)';
-      db.query(query, data, function (err, data) {
+      console.log('line 21 in lessonModel ', currentUser, data);
+      var query = 'update lessons set student_id=' + 2 + ' where teacher_id=' + data.teacher_id + ' and lesson=' + JSON.stringify(data.lesson);
+      db.query(query, function (err, data) {
         //handle err with callback  
         if (err) {
           cb(err, null); 
         }
         //handle data with callback
+        console.log('line 29 in lessonModel ', data);
         cb(null, data);
       });
     }  

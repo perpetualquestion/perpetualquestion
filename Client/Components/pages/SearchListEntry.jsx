@@ -11,11 +11,12 @@ export default class SearchListEntry extends React.Component {
     };
   }
 
-  scheduleLesson() {
-    console.log(this.props);
+  enroll() {
+    console.log(this.props.item);
     var setState = this.setState.bind(this);
-    var enrolled = Helper.enroll(this.props.item, function(enrolled) {
-      setState({enrolled.lesson});
+    Helper.enroll(this.props.item, function(enrolled) {
+      console.log(enrolled);
+      setState({enrolled});
     });
   }
 
@@ -26,7 +27,7 @@ export default class SearchListEntry extends React.Component {
             <td>
               {this.props.item.firstname + ' ' + this.props.item.lastname}
             </td>
-            <td onClick={this.scheduleLesson.bind(this)}>
+            <td onClick={this.enroll.bind(this)}>
               <a href="/">{this.props.item.lesson}</a>
             </td>
           </tr>
