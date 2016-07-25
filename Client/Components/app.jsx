@@ -10,10 +10,7 @@ import Search from "./pages/SearchBar";
 import SignIn from './pages/SignIn';
 import SignOut from './pages/Signout';
 
-
 const app = document.getElementById('app');
-
-
 
 ReactDOM.render(
 	<Router history={hashHistory}>
