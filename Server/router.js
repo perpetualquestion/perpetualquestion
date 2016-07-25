@@ -29,7 +29,6 @@ router.post('/signup', controller.users.post);
 
 router.get('/profile', controller.users.getOne);
 
-
 // newsFeeds get method, for fetch newFeeds to website
 router.get('/newsfeed', controller.newsfeed.get);
 
