@@ -30,7 +30,7 @@ module.exports = {
 					//check password;
 					console.log('data received for signin', dataReceived);
 					if( dataReceived.length != 0 && dataReceived[0].password === req.query.password) {
-						req.session.id = dataReceived[0].id;
+						req.session.index = dataReceived[0].id;
 						req.session.username = req.query.username;
 						console.log('sucess log in');
 						res.redirect('/#/search');
@@ -50,7 +50,8 @@ module.exports = {
 				if(err){
 					//To Do: we can decide how to handle error later
 				}
-				req.session.id = dataReceived.insertId;
+				console.log('here is line 53: ', dataReceived);
+				req.session.index = dataReceived.insertId;
 				req.session.username = req.body.username;
 				console.log('request session', dataReceived.insertId);
 				res.redirect('/search');
@@ -101,18 +102,30 @@ module.exports = {
 			}, req._parsedUrl.query);
 		},
 		update: function(req, res) {
+			console.log('hasdjasd ', req.body, req.session);
 			if (req.session.username !== undefined) {
-				lessonsModel.user.update(function (err, dataReceived) {
+				lessonsModel.lessons.update(function (err, dataReceived) {
 					if(err){
 						//To Do: we can decide error handling later	
 					}
 					// console.log('data received for profile is:' + dataReceived[0]);
 					res.json(dataReceived);
 				//Username pass in from Helper.js. Data is stored in request query for GET request.
-				}, req.session.id);				
+				}, req.session.username, req.body);				
 			} else {
 				res.redirect('/');
 			}
+		},
+		getAll: function (req, res) {
+			console.log(req.query, req.session);
+			lessonsModel.lessons.getAll(function (err, dataReceived) {
+				if (err) {
+					//To Do: we can decide how to handle erro later
+					console.log('==========controller cb encounter error========>');
+				}
+				res.json(dataReceived);
+				//Username pass in from Helper.js
+			}, req.session.index);
 		}
 	}
 }; 

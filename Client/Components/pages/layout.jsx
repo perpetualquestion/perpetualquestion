@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
-import Newfeeds from "./NewsfeedView";
+import Newsfeed from "./NewsfeedView";
 import SignIn from './SignInSignUpView';
 import Search from './SearchBar';
 import Helper from '../../Helper/Helper';
@@ -43,8 +43,8 @@ export default class Layout extends React.Component {
 								<li className={this.isActive('')} onClick={ this.setFilter.bind(this, '')}>
 									<Link to="search" >Search</Link>
 								</li>
-								<li className={this.isActive('newfeeds')} onClick={ this.setFilter.bind(this, 'newfeeds')}>
-									<Link to="newfeeds" params={{state: this.state}}>Newfeeds</Link>
+								<li className={this.isActive('newsfeed')} onClick={ this.setFilter.bind(this, 'newsfeed')}>
+									<Link to="newsfeed">Newsfeed</Link>
 								</li>
 								<li className={this.isActive('profile')} onClick={ this.setFilter.bind(this, 'profile')}>
 									<Link to="profile">Profile</Link>
@@ -70,7 +70,7 @@ export default class Layout extends React.Component {
 				// 	<ul className="nav nav-sidebar">
 				// 		<li><button onClick={this.navigate.bind(this)}>Home</button></li>
 				// 		<li><Link to="SearchBar">Search</Link></li>
-				// 		<li><Link to="newfeeds">Newfeeds</Link></li>
+				// 		<li><Link to="newsfeed">newsfeed</Link></li>
 				// 		<li><Link to="profile">Profile</Link></li>
 				// 	</ul>
 				// </div>

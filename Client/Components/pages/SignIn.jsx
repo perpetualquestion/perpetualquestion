@@ -2,7 +2,7 @@ import React from 'react';
 import Helper from '../../Helper/Helper';
 import Profile from './profile';
 import { Route } from 'react-router';
-import Newfeeds from "./NewsfeedView";
+import Newsfeed from "./NewsfeedView";
 import SignUp from './SignUp'
 
 
@@ -24,7 +24,7 @@ export default class SignIn extends React.Component {
   }
 
   navigate() {
-    this.props.history.pushState(null, '/newfeeds');
+    this.props.history.pushState(null, '/newsfeed');
   } 
 
   handleSignin(e) {
