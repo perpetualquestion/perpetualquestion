@@ -30,11 +30,9 @@ export default class Search extends React.Component {
   render() {
     return (
       <div>
-        <form method="GET" onSubmit={this.handleSearch.bind(this)}>
+        <form method="GET">
           <h4>Search for skill you want to learn</h4>
-          <input type="text" ref="text" className="form-control" />
-
-          <input type="submit" value="Search" />
+          <input type="text" ref="text" className="form-control" onChange={this.handleSearch.bind(this)}/>
         </form>
         <SearchList
           searches={this.state.searches}

@@ -40,7 +40,19 @@ module.exports = {
         //handle data with callback
         cb(null, data); 
       })
-    }  
+    },
+    post: function(cb, data) {
+      //We may need to modifiled the insertion query below depends on our needs
+      var query = 'insert into lesson set ?';
+      db.query(query, data, function (err, dataReceived) {
+        //handle error with callback
+        if(err) {
+          cb(err, null);
+        }
+        //handle error with callback
+        cb(null, dataReceived);
+      })      
+    }   
   }
 }; 
 

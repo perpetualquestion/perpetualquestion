@@ -3,8 +3,8 @@ import NewsfeedEntryView from './NewsfeedEntryView'
 import helper from '../../Helper/Helper';
 
 export default class Newfeeds extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {messages:[]};
     //Callback is used to handle asynchronous request.
     var callback = function(data) {
