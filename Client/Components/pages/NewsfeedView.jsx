@@ -3,8 +3,8 @@ import NewfeedsEntryView from './NewsfeedEntryView'
 import helper from '../../Helper/Helper';
 
 export default class Newfeeds extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {messages:[]};
     //Callback is used to handle asynchronous request.
     var callback = function(data) {
@@ -19,10 +19,17 @@ export default class Newfeeds extends React.Component {
   render() {
     return (
       <div>
-    		<h3>Newfeeds</h3>
-        {this.state.messages.map((message, index)=>(
-          <NewfeedsEntryView message={message} key={index} />
-        ))}
+        <div>
+          <h3>Pending Enrollments</h3>
+          <h4>{console.log(this.props)}</h4>
+
+        </div>
+        <div>
+      		<h3>Newfeeds</h3>
+          {this.state.messages.map((message, index)=>(
+            <NewfeedsEntryView message={message} key={index} />
+          ))}
+        </div>
       </div>
     )
   }
