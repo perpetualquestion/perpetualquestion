@@ -8,6 +8,7 @@ export default class Newfeeds extends React.Component {
     this.state = {messages:[]};
     //Callback is used to handle asynchronous request.
     var callback = function(data) {
+      data = data || [];
       //Setting the state will cause the page to re-render.
       this.setState({messages: data});
     }.bind(this);
@@ -21,7 +22,7 @@ export default class Newfeeds extends React.Component {
         <div>
       		<h3>Newfeeds</h3>
           {this.state.messages.map((message, index)=>(
-            <NewfeedsEntryView message={message} key={index} />
+            <NewsfeedEntryView student={message.student_id} teacher={message.teacher_id} lesson={message.lesson} />
           ))}
         </div>
     )

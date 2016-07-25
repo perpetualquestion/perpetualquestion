@@ -16,10 +16,9 @@ module.exports = {
         cb(null, data); 
       })
     },
-    update: function (cb, currentUser, data) {
+    update: function (cb, UserId, data) {
       //the data must have username as one of its property
-      console.log('line 21 in lessonModel ', currentUser, data);
-      var query = 'update lessons set student_id=' + 2 + ' where teacher_id=' + data.teacher_id + ' and lesson=' + JSON.stringify(data.lesson);
+      var query = 'update lessons set student_id=' + UserId + ' where teacher_id=' + data.teacher_id + ' and lesson=' + JSON.stringify(data.lesson);
       db.query(query, function (err, data) {
         //handle err with callback  
         if (err) {
@@ -30,8 +29,8 @@ module.exports = {
         cb(null, data);
       });
     },
-    get: function (cb, user_id){
-      var query = "select * from lessons where teacher_id=" + JSON.stringify(user_id);
+    getAll: function (cb, user_id){
+      var query = "select * from lessons where teacher_id=" + user_id;
       db.query(query, function (err, data) {
         //handle err with callback  
         if (err) {
