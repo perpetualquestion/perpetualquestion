@@ -36,9 +36,10 @@ module.exports = {
         if (err) {
           cb(err, null); 
           console.log('------------here in the lessonsModel query encounter err: ' + err);
-        }
+        } else {
         //handle data with callback
-        cb(null, data); 
+          cb(null, data);
+        } 
       })
     },
     post: function(cb, data) {
