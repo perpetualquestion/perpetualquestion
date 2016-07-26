@@ -28,6 +28,14 @@ export default class Profile extends React.Component {
     });
   }
 
+  addLesson(e) {
+    var requestObj = {
+      subject: this.refs.lesson.value.trim()
+    };
+    console.log('this add lesson get called with:', requestObj);
+    // Helper.offerClass(requestObj);
+  }
+
   updateAll(obj) {
     this.setState({
       firstName: obj.firstname,
@@ -53,11 +61,11 @@ export default class Profile extends React.Component {
           </div>
           <div className='col-md-6'>
             <h2>Add Lessons</h2>
-            <form method="post">
-              <p>Subject:</p>
-              <input type="text" ref="username" />
+            <form method="post" onSubmit={this.addLesson.bind(this)} >
+              <p>Lesson to offered:</p>
+              <input type="text" ref="lesson" />
               <br />
-              <input type="submit" value="Add" />
+              <input type="submit" value="Add Lesson" />
             </form>
           </div>   
         </div>
