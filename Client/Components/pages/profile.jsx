@@ -22,6 +22,7 @@ export default class Profile extends React.Component {
     var update = this.updateAll.bind(this);
     Helper.searchProfile(function (data) {
       //Notice, data should be an object from successulf ajax call, and setProfile
+      if( !data ){return;}
       console.log(data[0]);
       update(data[0]);
     });
