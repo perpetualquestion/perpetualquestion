@@ -29,6 +29,7 @@ export default class Profile extends React.Component {
   }
 
   addLesson(e) {
+    e.preventDefault();
     var requestObj = {
       lesson: this.refs.lesson.value.trim()
     };
