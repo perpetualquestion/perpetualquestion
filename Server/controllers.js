@@ -133,17 +133,22 @@ module.exports = {
 		},
 		post: function (req, res) {
 			//Data is stored in the request body for POST request.
-			var dataPosted = req.body;
-			lessonsModel.lessons.post(function (err, dataReceived) {
-				if(err){
-					//To Do: we can decide how to handle error later
-				}
-				req.session.index = dataReceived.insertId;
-				req.session.username = req.body.username;
-				res.redirect('/profile');
+			if(req.session.index !== undefined) {
+				var dataPosted = {
+					lesson: req.body.lesson,
+					teacher_id: req.session.index					
+				};
+				lessonsModel.lessons.post(function (err, dataReceived) {
+					if(err){
+						//To Do: we can decide how to handle error later
+					}
+					// req.session.index = dataReceived.insertId;
+					// req.session.username = req.body.username;
+					res.redirect('/profile');
 
-			}, dataPosted);
-		}, 
+				}, dataPosted);				
+			}
+		} 
 	}
 }; 
 
