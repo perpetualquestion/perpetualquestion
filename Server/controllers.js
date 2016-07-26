@@ -50,10 +50,6 @@ module.exports = {
 				if(err){
 					//To Do: we can decide how to handle error later
 				}
-<<<<<<< 42da17140e91ef7179956dd285dbcce9ca1af02a
-				console.log('here is line 53: ', dataReceived);
-=======
->>>>>>> Update to store session index as id is reservered
 				req.session.index = dataReceived.insertId;
 				req.session.username = req.body.username;
 				console.log('request session', dataReceived.insertId);
