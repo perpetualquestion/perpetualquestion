@@ -30,7 +30,7 @@ module.exports = {
       });
     },
     getAll: function (cb, user_id){
-      var query = "select * from lessons where teacher_id=" + user_id;
+      var query = "select l.lesson, l.teacher_id, l.student_id, u.firstname, u.lastname from lessons l, users u where u.id=l.student_id and l.teacher_id=" + user_id;
       db.query(query, function (err, data) {
         //handle err with callback  
         if (err) {
@@ -44,7 +44,7 @@ module.exports = {
     },
     post: function(cb, data) {
       //We may need to modifiled the insertion query below depends on our needs
-      var query = 'insert into lesson set ?';
+      var query = 'insert into lessons set ?';
       db.query(query, data, function (err, dataReceived) {
         //handle error with callback
         if(err) {

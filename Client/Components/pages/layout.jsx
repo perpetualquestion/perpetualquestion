@@ -3,9 +3,8 @@ import { Link } from "react-router";
 import Newsfeed from "./NewsfeedView";
 import SignIn from './SignInSignUpView';
 import Search from './SearchBar';
-import Helper from '../../Helper/Helper';
-
-
+import SignOut from './Signout';
+import Helper from '../../Helper/Helper'
 
 export default class Layout extends React.Component {
 	constructor(props) {
@@ -18,16 +17,16 @@ export default class Layout extends React.Component {
 	navigate() {
 		this.props.history.pushState(null, '/');
 	}	
+
+	signOut() {
+
+	}
   
   setFilter(filter) {
     this.setState({selected : filter});
   }
   isActive(value){
     return ((value===this.state.selected) ? 'active':'default');
-  }
-
-  signout() {
-  	Helper.signout();
   }
 
 	render() {
@@ -43,7 +42,7 @@ export default class Layout extends React.Component {
 								<li className={this.isActive('')} onClick={ this.setFilter.bind(this, '')}>
 									<Link to="search" >Search</Link>
 								</li>
-								<li className={this.isActive('newsfeed')} onClick={ this.setFilter.bind(this, 'newsfeed')}>
+								<li className={this.isActive('newsfeed')} onClick={ this.setFilter.bind(this, 'newfeeds')}>
 									<Link to="newsfeed">Newsfeed</Link>
 								</li>
 								<li className={this.isActive('profile')} onClick={ this.setFilter.bind(this, 'profile')}>
@@ -52,7 +51,9 @@ export default class Layout extends React.Component {
 								<li className={this.isActive('signin')} onClick={ this.setFilter.bind(this, 'signin')}>
 									<Link to="signin">Sign In/Up</Link>
 								</li>
-								<li onClick={ this.signout.bind(this) } >Sign Out</li>
+								<li className={this.isActive('signout')} onClick={ this.setFilter.bind(this, 'signout')}>
+									<Link to="signout">Sign Out</Link>
+								</li>
 							</ul>
 						</div>
 					</div>
@@ -70,7 +71,7 @@ export default class Layout extends React.Component {
 				// 	<ul className="nav nav-sidebar">
 				// 		<li><button onClick={this.navigate.bind(this)}>Home</button></li>
 				// 		<li><Link to="SearchBar">Search</Link></li>
-				// 		<li><Link to="newsfeed">newsfeed</Link></li>
+				// 		<li><Link to="newfeeds">Newfeeds</Link></li>
 				// 		<li><Link to="profile">Profile</Link></li>
 				// 	</ul>
 				// </div>

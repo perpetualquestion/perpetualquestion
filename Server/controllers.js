@@ -50,7 +50,6 @@ module.exports = {
 				if(err){
 					//To Do: we can decide how to handle error later
 				}
-				console.log('here is line 53: ', dataReceived);
 				req.session.index = dataReceived.insertId;
 				req.session.username = req.body.username;
 				console.log('request session', dataReceived.insertId);
@@ -134,17 +133,25 @@ module.exports = {
 		},
 		post: function (req, res) {
 			//Data is stored in the request body for POST request.
-			var dataPosted = req.body;
-			lessonsModel.lessons.post(function (err, dataReceived) {
-				if(err){
-					//To Do: we can decide how to handle error later
-				}
-				req.session.index = dataReceived.insertId;
-				req.session.username = req.body.username;
-				res.redirect('/profile');
+			console.log('controller before session check')
+			if(req.session.index !== undefined) {
+				var dataPosted = {
+					lesson: req.body.lesson,
+					teacher_id: req.session.index					
+				};
+				console.log('controller inside session check:', dataPosted);
+				lessonsModel.lessons.post(function (err, dataReceived) {
+					if(err){
+						//To Do: we can decide how to handle error later
+						console.log(err);
+					}
+					// req.session.index = dataReceived.insertId;
+					// req.session.username = req.body.username;
+					res.redirect('/profile');
 
-			}, dataPosted);
-		}, 
+				}, dataPosted);				
+			}
+		} 
 	}
 }; 
 
