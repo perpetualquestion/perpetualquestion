@@ -22,9 +22,19 @@ export default class Profile extends React.Component {
     var update = this.updateAll.bind(this);
     Helper.searchProfile(function (data) {
       //Notice, data should be an object from successulf ajax call, and setProfile
+      if( !data ){return;}
       console.log(data[0]);
       update(data[0]);
     });
+  }
+
+  addLesson(e) {
+    e.preventDefault();
+    var requestObj = {
+      lesson: this.refs.lesson.value.trim()
+    };
+    console.log('this add lesson get called with:', requestObj);
+    Helper.offerClass(requestObj);
   }
 
   updateAll(obj) {
@@ -40,15 +50,26 @@ export default class Profile extends React.Component {
 
 	render() {
 		return (
-      <div>
-  			<h3>Profile</h3>
-        <p>First Name:  <span> {this.state.firstName} </span> </p>
-        <p>Last Name:  <span> {this.state.lastName} </span> </p>
-        <p>User Name:  <span> {this.state.userName} </span> </p>
-        <p>Github:  <span> {this.state.github} </span> </p>
-        <p>Linkedin:  <span> {this.state.linkedin} </span> </p>
-        <p>Email:  <span> {this.state.email} </span> </p>
-      </div> 
+        <div>
+          <div className='col-md-6'>
+            <h2>Profile</h2>
+            <p>First Name:  <span> {this.state.firstName} </span> </p>
+            <p>Last Name:  <span> {this.state.lastName} </span> </p>
+            <p>User Name:  <span> {this.state.userName} </span> </p>
+            <p>Github:  <span> {this.state.github} </span> </p>
+            <p>Linkedin:  <span> {this.state.linkedin} </span> </p>
+            <p>Email:  <span> {this.state.email} </span> </p>
+          </div>
+          <div className='col-md-6'>
+            <h2>Add Lessons</h2>
+            <form method="post" onSubmit={this.addLesson.bind(this)} >
+              <p>Lesson to offered:</p>
+              <input type="text" ref="lesson" />
+              <br />
+              <input type="submit" value="Add Lesson" />
+            </form>
+          </div>   
+        </div>
 		);
 	}
 }

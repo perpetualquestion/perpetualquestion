@@ -31,8 +31,12 @@ router.get('/signout', controller.users.signout);
 
 router.get('/profile', controller.users.getOne);
 
+router.post('/enroll', controller.search.update);
+
+router.post('/offerClass', controller.search.post);
+
 // newsFeeds get method, for fetch newFeeds to website
-router.get('/newsfeed', controller.newsfeed.get);
+router.get('/newsfeed', controller.search.getAll);
 
 // newsFedds post method, for posting / updating user's information
 // router.post('/newsfeed', controller.newsfeeds.post);

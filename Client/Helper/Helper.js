@@ -44,6 +44,7 @@ module.exports = {
 
 	//offerClass is a "post" to creating a class list with all informations, 
 	offerClass: function (obj) {
+		console.log('inside offer class', obj);
 		$.ajax({
 			method: 'POST',
 			url: '/offerClass', 
@@ -55,7 +56,7 @@ module.exports = {
 	}, 
 
 	//enroll is a "post" to update the information on the course database, then it will populate the particular course on both the "student" and "teacher" profile / newsfeed page
-	enroll: function (obj) {
+	enroll: function (obj, cb) {
 		$.ajax({
 			method: 'POST', 
 			url: '/enroll',
@@ -63,6 +64,7 @@ module.exports = {
 		})
 		.done(function (enrolled) {
 			console.log('class requested: ' + enrolled);
+			cb(enrolled);
 		})
 	},
 
@@ -95,13 +97,11 @@ module.exports = {
 	},
 
 	//Seach for all the message given a particular user. Set to just Hien right now.
-	newsfeed: function (callback, username) {
+	newsfeed: function (callback) {
 		//data is wrap inside a object to be retrieved later in controllers.js
-		var wrapper = {username: username};
 		$.ajax({
 			method: 'GET',
 			url: '/newsfeed',
-			data: wrapper
 		})
 		.done(function (data) {
 			//Callback is setting State in NewsfeedEntryView

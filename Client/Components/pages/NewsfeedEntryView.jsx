@@ -13,7 +13,7 @@ var NewsfeedEntryView = (props) => (
 
   //Display individual message for teacher.
   <p className='lead bg-info'>
-    {props.message.feeds}
+    {props.lesson}
   </p>
 );
 
