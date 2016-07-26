@@ -53,7 +53,7 @@ export default class Profile extends React.Component {
           </div>
           <div className='col-md-6'>
             <h2>Add Lessons</h2>
-            <form method="post" onSubmit={}>
+            <form method="post">
               <p>Subject:</p>
               <input type="text" ref="username" />
               <br />
