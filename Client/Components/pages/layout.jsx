@@ -4,11 +4,7 @@ import Newfeeds from "./NewsfeedView";
 import SignIn from './SignInSignUpView';
 import Search from './SearchBar';
 import SignOut from './Signout';
-<<<<<<< 74a013038bcfbbda6114f840997630ae78243ad7
 import Helper from '../../Helper/Helper'
-=======
->>>>>>> refactor name of SignOut component
-
 
 export default class Layout extends React.Component {
 	constructor(props) {
