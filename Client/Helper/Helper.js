@@ -44,6 +44,7 @@ module.exports = {
 
 	//offerClass is a "post" to creating a class list with all informations, 
 	offerClass: function (obj) {
+		console.log('inside offer class', obj);
 		$.ajax({
 			method: 'POST',
 			url: '/offerClass', 
