@@ -33,7 +33,7 @@ router.get('/profile', controller.users.getOne);
 
 router.post('/enroll', controller.search.update);
 
-router.post('/lesson', controller.search.post);
+router.post('/offerClass', controller.search.post);
 
 // newsFeeds get method, for fetch newFeeds to website
 router.get('/newsfeed', controller.search.getAll);

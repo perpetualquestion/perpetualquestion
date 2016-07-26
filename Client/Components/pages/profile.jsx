@@ -30,10 +30,10 @@ export default class Profile extends React.Component {
 
   addLesson(e) {
     var requestObj = {
-      subject: this.refs.lesson.value.trim()
+      lesson: this.refs.lesson.value.trim()
     };
     console.log('this add lesson get called with:', requestObj);
-    // Helper.offerClass(requestObj);
+    Helper.offerClass(requestObj);
   }
 
   updateAll(obj) {
