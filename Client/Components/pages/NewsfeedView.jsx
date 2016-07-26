@@ -22,7 +22,7 @@ export default class Newfeeds extends React.Component {
         <div>
       		<h3>Newfeeds</h3>
           {this.state.messages.map((message, index)=>(
-            <NewsfeedEntryView student={message.student_id} teacher={message.teacher_id} lesson={message.lesson} />
+            <NewsfeedEntryView student={message.firstname+ ' ' + message.lastname} teacher={message.teacher_id} lesson={message.lesson} />
           ))}
         </div>
     )

@@ -13,7 +13,8 @@ var NewsfeedEntryView = (props) => (
 
   //Display individual message for teacher.
   <p className='lead bg-info'>
-    {props.lesson}
+    {console.log('in newsfeedentryview ',props.student)}
+    {props.student}  wants to take your {props.lesson}
   </p>
 );
 
