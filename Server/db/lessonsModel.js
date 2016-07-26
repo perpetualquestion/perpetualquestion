@@ -44,7 +44,7 @@ module.exports = {
     },
     post: function(cb, data) {
       //We may need to modifiled the insertion query below depends on our needs
-      var query = 'insert into lesson set ?';
+      var query = 'insert into lessons set ?';
       db.query(query, data, function (err, dataReceived) {
         //handle error with callback
         if(err) {
